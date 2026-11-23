@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smart Event IT Checklist – منصة تجهيز الفعاليات البلدية</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FAF3C8;--mint:#B9DDD1;--blue:#8FA8C8;--or:#F26C1D;--bg:#FAF3C8;--card:#FDF9E0;--ink:#3A3417;--mut:#6B6330;--line:#D6CB86;--mintd:#2E6657;--blued:#2F4A6B;--ord:#A8430A;--nt:#2B2A12;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1B2633;--card:#243344;--ink:#FAF3C8;--mut:#B9C4D2;--line:#3B4F66;--mintd:#B9DDD1;--blued:#8FA8C8;--ord:#F58C4A}}
+:root[data-theme=dark]{--bg:#1B2633;--card:#243344;--ink:#FAF3C8;--mut:#B9C4D2;--line:#3B4F66;--mintd:#B9DDD1;--blued:#8FA8C8;--ord:#F58C4A}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif;line-height:1.65;font-size:14.5px}
+.app{max-width:1260px;margin:auto;padding:16px;animation:in .5s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;transition:border-color .25s}
+h1{font-size:20px;margin:0}h2{font-size:15px;margin:0 0 10px;color:var(--blued)}
+.mut{color:var(--mut);font-size:12.5px}
+.hd{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.sp{flex:1}
+select,input{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink)}
+.btn{font:inherit;font-size:13px;font-weight:500;border:0;border-radius:9px;padding:8px 14px;cursor:pointer;background:var(--blued);color:var(--cream);transition:transform .15s,opacity .2s}
+.btn:hover{transform:translateY(-1px)}.btn.o{background:transparent;border:1px solid var(--line);color:var(--ink)}.btn.w{background:var(--or);color:var(--nt)}.btn.m{background:var(--mint);color:var(--nt)}
+button:focus-visible,select:focus-visible,input:focus-visible,.nd:focus-visible rect{outline:2px solid var(--or);outline-offset:2px}
+.badge{padding:3px 14px;border-radius:14px;font-weight:700;font-size:13px;color:var(--nt);transition:background .4s}
+.b-ready{background:var(--mint)}.b-prog{background:var(--blue)}.b-short{background:var(--or)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:12px 0}
+.kpi b{display:block;font-size:24px;line-height:1.3}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:12px}
+@media(max-width:960px){.main{grid-template-columns:1fr}}
+.col{display:flex;flex-direction:column;gap:12px}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:12px}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin-top:12px}
+.trk{height:8px;background:var(--line);border-radius:4px;overflow:hidden;flex:1}.trk i{display:block;height:100%;border-radius:4px;transition:width .6s ease,background .4s}
+.row{display:flex;align-items:center;gap:8px}
+.it{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid var(--line);font-size:13.5px}
+.st{margin-inline-start:auto;font:inherit;font-size:12px;font-weight:500;border:0;border-radius:12px;padding:2px 11px;cursor:pointer;color:var(--nt);min-width:78px;transition:background .3s}
+.s-todo{background:var(--line)}.s-prog{background:var(--blue)}.s-done{background:var(--mint)}.s-late{background:var(--or)}
+.nd{cursor:pointer}.nd rect{transition:fill .4s,stroke .4s}.nd:hover rect{stroke-width:3}
+.kv{display:grid;grid-template-columns:92px 1fr;gap:3px 8px;font-size:13px;margin:8px 0}.kv dt{color:var(--mut)}.kv dd{margin:0}
+.pin{cursor:pointer}.pin circle{transition:fill .4s}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.chips button{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:16px;padding:3px 12px;cursor:pointer}.chips button.on{background:var(--blued);color:var(--cream);border-color:var(--blued)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-inline-end:5px}
+.feed{max-height:190px;overflow-y:auto;font-size:13px}.feed div{padding:5px 0;border-top:1px solid var(--line);animation:in .3s}
+.ban{background:var(--mint);color:var(--nt);border-radius:10px;padding:10px 14px;font-weight:700;margin-bottom:10px;animation:in .4s}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:right;padding:6px 6px;border-bottom:1px solid var(--line)}
+.chat{max-height:170px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;margin-bottom:8px}.m{padding:6px 11px;border-radius:10px;max-width:90%;font-size:13px}.m.u{background:var(--blued);color:var(--cream);align-self:flex-start}.m.a{background:var(--mint);color:var(--nt);align-self:flex-end}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin-top:6px}
+#toast{position:fixed;inset-inline:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:11px 16px;border-radius:10px;z-index:9;max-width:520px;margin-inline:auto;animation:in .3s}
+@keyframes bl{50%{opacity:.4}}@media(prefers-reduced-motion:no-preference){.blink{animation:bl 1s infinite}}
+.app{animation:zin .6s cubic-bezier(.2,.8,.2,1)}@keyframes zin{from{opacity:0;transform:scale(.94)}}
+.gt{position:fixed;inset:0;overflow:hidden;background:radial-gradient(circle at 50% 48%,#2A3B52,#141D29 75%);color:#FAF3C8;animation:in .6s ease;touch-action:none}
+.gtc{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
+.gtt{position:absolute;top:calc(28px + env(safe-area-inset-top,0px));inset-inline:0;text-align:center;padding:0 16px;pointer-events:none;transition:opacity .4s}
+.gtk{font-size:13px;letter-spacing:2px;color:#8FA8C8;font-weight:700}
+.gth{font-size:clamp(19px,3.2vw,30px);margin:6px auto 0;max-width:720px;line-height:1.45;font-weight:700}
+.gtf{position:absolute;bottom:calc(32px + env(safe-area-inset-bottom,0px));inset-inline:0;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 16px;text-align:center;transition:opacity .4s}
+.gtb{font:inherit;font-size:15px;font-weight:700;background:#F26C1D;color:#2B2A12;border:0;border-radius:28px;padding:12px 32px;cursor:pointer}
+.gtb:focus-visible{outline:3px solid #FAF3C8;outline-offset:3px}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(242,108,29,.5)}70%{box-shadow:0 0 0 14px rgba(242,108,29,0)}}
+@media(prefers-reduced-motion:no-preference){.gtb{animation:pl 2s infinite}}
+.gtn{font-size:12.5px;color:#B9C4D2}
+.gt.jn .gtt,.gt.jn .gtf{opacity:0}
+.it{flex-wrap:wrap}.wh{font-size:12px;padding:2px 6px;border-radius:7px}
+.scan{background:var(--bg);border:1px dashed var(--blued);border-radius:10px;padding:8px 12px;margin-top:8px;font-size:13px;animation:in .3s}
+.bi{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:12px 0}
+.bic{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg)}
+.bis{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:10px;text-align:center}.bis b{display:block;font-size:16px}.bis span{font-size:11px}
+.tag{font-size:11.5px;padding:1px 9px;border-radius:10px;background:var(--mint);color:var(--nt)}
+.emg{background:var(--or);color:var(--nt);border-radius:12px;padding:12px 14px;animation:in .3s}.emg .btn{background:var(--nt);color:var(--cream)}.emg .btn.m{background:var(--mint);color:var(--nt)}
+.gl{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}@media(max-width:760px){.gl{grid-template-columns:1fr}}
+.gb{position:relative;height:16px;background:var(--line);border-radius:8px;margin:14px 0 8px}.gb i{display:block;height:100%;border-radius:8px;transition:width .6s,background .4s}.gb em{position:absolute;inset-block:-5px;inset-inline-end:0;width:3px;background:var(--ink);border-radius:2px}
+.cd{display:flex;gap:8px;justify-content:center}.cd div{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:6px 12px;text-align:center;min-width:62px}.cd b{display:block;font-size:22px;line-height:1.3}
+.imp{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.imp>div{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg)}.imp ul{margin:6px 0 0;padding-inline-start:18px;font-size:13.5px}
+.imc{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}.imc div{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px}.imc b{display:block;font-size:22px}
+.tb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.tabs{display:flex;gap:4px;overflow-x:auto;max-width:100%}.tabs button{font:inherit;font-size:13.5px;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:6px 14px;cursor:pointer;white-space:nowrap;transition:background .2s}.tabs button.on{background:var(--blued);color:var(--cream);border-color:var(--blued);font-weight:700}
+.scr{margin-top:12px;animation:in .35s}@media(max-width:700px){.tabs{flex-wrap:wrap;overflow:visible}}
+.rc{background:var(--card);border:1px solid var(--line);border-inline-start:5px solid var(--blue);border-radius:12px;padding:12px;margin-bottom:10px}.rd{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:13.5px;display:flex;flex-direction:column;gap:4px}
+.pn2{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg);margin-bottom:10px}.pn2 .btn:disabled{opacity:.4;cursor:not-allowed}
+.alt{background:var(--card);border:1px solid var(--blued);border-radius:10px;padding:10px 12px;font-size:13.5px;display:flex;flex-direction:column;gap:4px;margin-top:6px;animation:in .3s}
+.stp{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.sk{font-size:12px;padding:2px 10px;border-radius:12px;border:1px solid var(--line);color:var(--mut)}.sk.ok{background:var(--mint);color:var(--nt);border-color:var(--mintd)}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:10px}.sc{font:inherit;text-align:right;background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:10px;cursor:pointer;transition:border-color .2s}.sc.on{border-color:var(--blued);box-shadow:0 0 0 2px var(--blue)}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.exs{font-size:17px;line-height:1.9;margin-top:6px}
+.ni{width:70px}.seg2{display:flex;height:12px;border-radius:6px;overflow:hidden;gap:2px;margin:6px 0 10px}.seg2 i{display:block}
+.ev{padding:9px 0;border-top:1px solid var(--line)}
+:root{--red:#C73E3A;--redt:#fff}@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--red:#EF6B66;--redt:#2B2A12}}:root[data-theme=dark]{--red:#EF6B66;--redt:#2B2A12}
+.zn{cursor:pointer;transition:transform .2s;transform-box:fill-box;transform-origin:center}.zn:hover{transform:scale(1.06)}.zn:focus-visible rect{stroke:var(--ink)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
+<script>
+const {useState,useEffect,useRef}=React,html=htm.bind(React.createElement);
+const RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NODES=[
+{id:'fw',en:'Router / Firewall',ar:'الراوتر والجدار الناري',x:690,y:165,loc:'غرفة التحكم',sn:'FW-48213',mt:'2026-09-14'},
+{id:'sw',en:'Core Switch',ar:'السويتش الرئيسي',x:540,y:165,loc:'غرفة التحكم',sn:'SW-77120',mt:'2026-09-14'},
+{id:'ap',en:'Access Points',ar:'نقاط الوصول',x:390,y:55,loc:'أعمدة الموقع',sn:'AP-30511',mt:'2026-08-30'},
+{id:'nvr',en:'NVR',ar:'مسجل الكاميرات',x:390,y:165,loc:'غرفة المراقبة',sn:'NVR-30981',mt:'2026-09-02'},
+{id:'cam',en:'IP Cameras',ar:'كاميرات المراقبة',x:230,y:165,loc:'المداخل والمواقف',sn:'CAM-55102',mt:'2026-09-02'},
+{id:'led',en:'LED Screen',ar:'شاشة LED',x:390,y:275,loc:'المسرح الرئيسي',sn:'LED-66310',mt:'2026-08-21'},
+{id:'ups',en:'UPS & Generator',ar:'UPS والمولد',x:690,y:285,loc:'غرفة الطاقة',sn:'UPS-90277',mt:'2026-09-25'},
+{id:'pc',en:'Laptop & Printer',ar:'الحاسب والطابعة',x:230,y:55,loc:'مكتب الإدارة',sn:'PC-12004',mt:'2026-08-17'}];
+const NM={};NODES.forEach(n=>NM[n.id]=n);
+const EDGES=[['fw','sw','d'],['sw','ap','d'],['sw','nvr','d'],['nvr','cam','d'],['sw','led','d'],['sw','pc','d'],['ups','fw','p'],['ups','sw','p'],['ups','nvr','p'],['ups','led','p']];
+const DEPTS=[['الشبكات',['fw','sw','ap']],['الكاميرات',['nvr','cam']],['الكهرباء والطاقة',['ups']],['الشاشات والدعم',['led','pc']]];
+const TECHS=['أحمد','ظهير','سلفراد'];
+const NOWN={fw:'أحمد',sw:'أحمد',pc:'أحمد',ap:'ظهير',nvr:'ظهير',cam:'ظهير',led:'سلفراد',ups:'سلفراد'};
+const BASE={fw:['تركيب الجدار الناري','ضبط سياسات الوصول'],sw:['تركيب السويتش الرئيسي','ضبط الشبكات الافتراضية'],ap:['تركيب نقاط الوصول','اختبار التغطية'],nvr:['تركيب جهاز التسجيل','تهيئة التخزين'],cam:['تركيب الكاميرات','ضبط الزوايا'],led:['تركيب شاشة LED','اختبار العرض'],ups:['تركيب UPS','فحص المولد الاحتياطي'],pc:['تجهيز الحاسب والطابعة','ربطهما بالشبكة']};
+const EXTRA={'مهرجان':{ap:'تغطية Wi‑Fi للزوار',cam:'كاميرات المداخل والمواقف',ups:'تعبئة وقود المولد'},'مؤتمر':{led:'شاشة العرض الرئيسية',ap:'إنترنت مخصص للقاعة',pc:'طاولة التسجيل'},'معرض':{ap:'شبكة الأجنحة',led:'شاشات الأجنحة',ups:'نقاط الكهرباء للأجنحة'},'احتفال':{led:'شاشة المسرح',ups:'إضاءة وصوت المسرح',cam:'تأمين منطقة الضيوف'},'حملة ميدانية':{ap:'راوتر متنقل 5G',pc:'حقيبة الأجهزة الميدانية',ups:'بطاريات محمولة'}};
+const OFF={'حملة ميدانية':['nvr','cam','led']};
+const TYPES=Object.keys(EXTRA);
+const ORDER=['todo','prog','done','late'],SL={todo:'لم يبدأ',prog:'قيد التجهيز',done:'مكتمل',late:'متأخر'};
+const ST={ready:['جاهز','mint'],prog:['جاري التجهيز','blue'],short:['يوجد نقص','or']};
+function gen(type,frac){const off=OFF[type]||[],items=[];
+ NODES.forEach(n=>{if(off.includes(n.id))return;const t=[...BASE[n.id]],x=EXTRA[type][n.id];if(x)t.push(x);t.forEach((l,i)=>items.push({id:n.id+i,node:n.id,label:l,s:'todo',who:NOWN[n.id]}))});
+ const k=Math.round(items.length*frac);items.forEach((it,i)=>{it.s=i<k?'done':i<k+2?'prog':'todo'});
+ if(frac<.9&&items.length>k+3)items[items.length-1].s='late';return items}
+const OWN0={fw:'البلدية',sw:'البلدية',ap:'البلدية',nvr:'البلدية',cam:'البلدية',pc:'البلدية',led:'الشركة المشغّلة',ups:'مورد خارجي'};
+const mkResp=()=>{const r={};NODES.forEach(n=>{const o=OWN0[n.id];r[n.id]={own:o,op:o==='مورد خارجي'?'الشركة المشغّلة':o,inst:o==='البلدية'?NOWN[n.id]:o,mnt:NOWN[n.id],hov:NOWN[n.id]}});return r};
+const mkSites=()=>{const a=[['مهرجان الحنيذ 3','مهرجان',.6,[215,58],90],['مهرجان لمة وفلة الرابع','مهرجان',.3,[80,98],300],['احتفال اليوم الوطني','احتفال',.85,[190,116],57]].map(([name,type,f,pos,hrs],i)=>({id:i,name,type,pos,start:Date.now()+hrs*36e5,items:gen(type,f),faults:{},owners:{...NOWN},resp:mkResp()}));a[0].resp.ups.mnt='';a[1].resp.led.hov='';a.forEach(z=>z.zst={});a[0].zst['SW-04']='weak';a[1].zst['PRN-01']='weak';return a};
+function calc(s){const off=OFF[s.type]||[],aff=new Set(),q=Object.keys(s.faults),seen=new Set(q);
+ while(q.length){const x=q.pop();EDGES.forEach(e=>{if(e[0]===x&&!seen.has(e[1])){seen.add(e[1]);aff.add(e[1]);q.push(e[1])}})}
+ const ns={};NODES.forEach(n=>{const its=s.items.filter(i=>i.node===n.id);ns[n.id]=off.includes(n.id)?'off':s.faults[n.id]?'fault':aff.has(n.id)?'aff':its.some(i=>i.s==='late')?'late':its.every(i=>i.s==='done')?'ready':'prog'});
+ const done=s.items.filter(i=>i.s==='done').length,pct=Math.round(done/s.items.length*100);
+ const bad=Object.keys(s.faults).length>0||s.items.some(i=>i.s==='late');
+ const act=NODES.filter(n=>ns[n.id]!=='off').length,dn=NODES.filter(n=>ns[n.id]==='fault'||ns[n.id]==='aff').length,zh=zHealth(s.zst,s.type),zf=(zh.ok+zh.weak*.5)/zh.total,zb=zh.fault+zh.down>0;
+ return{ns,aff,pct,zh,eff:Math.round(pct*(act-dn)/act*zf),st:pct===100&&!bad&&!zb&&!zh.weak?'ready':bad||zb?'short':'prog'}}
+function qr(seed,n=21){let h=0;for(const c of seed)h=(h*31+c.charCodeAt(0))>>>0;let r='';
+ for(let y=0;y<n;y++)for(let x=0;x<n;x++){const f=(x<7&&y<7)||(x>n-8&&y<7)||(x<7&&y>n-8);let on;
+  if(f){const a=x<7?x:x-(n-7),b=y<7?y:y-(n-7);on=a===0||b===0||a===6||b===6||(a>1&&a<5&&b>1&&b<5)}else{h=(h*1103515245+12345)>>>0;on=(h>>16)&1}
+  if(on)r+=`<rect x="${x}" y="${y}" width="1" height="1"/>`}
+ return `<svg viewBox="-1 -1 ${n+2} ${n+2}" width="92" height="92" style="background:#fff;border-radius:6px"><g fill="#26301F">${r}</g></svg>`}
+const clock=()=>new Date().toLocaleTimeString('ar-SA',{hour:'2-digit',minute:'2-digit'});
+
+function Gate({onEnter}){
+ const cv=useRef(null),S=useRef({mx:-999,my:-999,mode:'idle',tj:0,done:0,pts:[]}),[mode,setMode]=useState('idle');
+ const join=()=>{const s=S.current;if(s.mode!=='idle')return;if(RM){onEnter();return}s.mode='join';s.tj=performance.now();setMode('join')};
+ const mv=e=>{const r=cv.current.getBoundingClientRect();S.current.mx=e.clientX-r.left;S.current.my=e.clientY-r.top};
+ const pd=e=>{mv(e);const s=S.current;if(s.pts.some(p=>Math.hypot(p[0]-s.mx,p[1]-s.my)<36))join()};
+ useEffect(()=>{
+  const c=cv.current,x=c.getContext('2d'),s=S.current,pal=['#B9DDD1','#8FA8C8','#FAF3C8'],t0=performance.now(),bg=getComputedStyle(document.body).backgroundColor;
+  let W=0,H=0,raf=0,thr=[],nodes=[],links=[];
+  const bez=(p,u)=>{const v=1-u,a=v*v*v,b=3*v*v*u,d=3*v*u*u,e=u*u*u;return[a*p[0]+b*p[2]+d*p[4]+e*p[6],a*p[1]+b*p[3]+d*p[5]+e*p[7]]};
+  const size=()=>{const dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+   const cx=W/2,cy=H*.48,R=Math.min(W*.42,H*.3),n=W<600?16:26,far=Math.hypot(W,H)*.55;s.cx=cx;s.cy=cy;
+   thr=Array.from({length:n},(_,i)=>{const a=i/n*6.283+(i%2)*.11;return{a,sx:cx+Math.cos(a)*far,sy:cy+Math.sin(a)*far,ph:i*1.7,col:pal[i%3],sp:.12+(i%5)*.03}});
+   nodes=Array.from({length:9},(_,i)=>{const a=i/9*6.283-1.5708,r=R*(i%2?.7:1);return{bx:cx+Math.cos(a)*r,by:cy+Math.sin(a)*r,ph:i*2.3,x:0,y:0,near:0}});
+   links=[];nodes.forEach((_,i)=>{links.push([i,-1,0],[i,(i+1)%9,1],[i,(i+2)%9,2])})};
+  const frame=now=>{
+   const t=RM?6:(now-t0)/1000,cx=s.cx,cy=s.cy,mx=s.mx,my=s.my;x.clearRect(0,0,W,H);
+   const jn=s.mode==='join'?Math.min(1.6,(now-s.tj)/1000):0,conv=Math.min(1,t/1.8),build=Math.max(Math.min(1,(t-1.4)/2.4),Math.min(1,jn/.8));
+   x.lineCap='round';
+   thr.forEach((h,i)=>{const w=Math.sin(t*h.sp*4+h.ph)*W*.1,px=-Math.sin(h.a),py=Math.cos(h.a);
+    const p=[h.sx,h.sy,h.sx*.65+cx*.35+px*w,h.sy*.65+cy*.35+py*w,h.sx*.3+cx*.7-px*w*.6,h.sy*.3+cy*.7-py*w*.6,cx,cy];
+    const m=bez(p,.5),d=Math.hypot(m[0]-mx,m[1]-my),nr=d<220?1-d/220:0;
+    if(nr){p[2]+=(mx-p[2])*nr*.22;p[3]+=(my-p[3])*nr*.22;p[4]+=(mx-p[4])*nr*.22;p[5]+=(my-p[5])*nr*.22}
+    const vis=Math.min(1,conv*1.5);x.strokeStyle=h.col;x.lineWidth=1+nr*1.8;x.globalAlpha=(.22+nr*.5)*vis;x.beginPath();
+    const k=Math.max(2,Math.round(26*conv));for(let j=0;j<=k;j++){const q=bez(p,j/26);j?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1])}x.stroke();
+    const q=bez(p,((t*h.sp*1.6+i*.17)%1)*conv);x.globalAlpha=.9*vis;x.fillStyle=h.col;x.beginPath();x.arc(q[0],q[1],2+nr*2,0,6.283);x.fill()});
+   nodes.forEach(n=>{n.x=n.bx+Math.sin(t*.6+n.ph)*9;n.y=n.by+Math.cos(t*.5+n.ph)*9;const dx=n.x-mx,dy=n.y-my,d=Math.hypot(dx,dy)||1;n.near=d<150?1-d/150:0;n.x+=dx/d*n.near*16;n.y+=dy/d*n.near*16});
+   links.forEach(([a,b,kd],i)=>{const A=nodes[a],B=b<0?{x:cx,y:cy,near:0}:nodes[b],pr=Math.max(0,Math.min(1,build*1.6-i/links.length*.6));if(pr<=0)return;
+    const dx=B.x-A.x,dy=B.y-A.y,L=Math.hypot(dx,dy)||1,nx=-dy/L,ny=dx/L,bow=(.06+kd*.1)*L*Math.sin(t*.45+i);
+    const p=[A.x,A.y,A.x+dx*.33+nx*bow,A.y+dy*.33+ny*bow,A.x+dx*.66+nx*bow,A.y+dy*.66+ny*bow,B.x,B.y],m=bez(p,.5),dm=Math.hypot(m[0]-mx,m[1]-my),nr=Math.max(A.near,B.near,dm<130?1-dm/130:0);
+    const col=kd===0?'#B9DDD1':kd===1?'#8FA8C8':'#FAF3C8';x.strokeStyle=col;x.lineWidth=1.2+nr*1.6+jn*.8;x.globalAlpha=Math.min(.95,.3+nr*.5+jn*.35);x.beginPath();
+    const k=Math.max(2,Math.round(20*pr));for(let j=0;j<=k;j++){const q=bez(p,j/20);j?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1])}x.stroke();
+    if(pr>=1){const q=bez(p,(t*.3+i*.13)%1);x.globalAlpha=.95;x.fillStyle=kd===0?'#F26C1D':col;x.beginPath();x.arc(q[0],q[1],2.4,0,6.283);x.fill()}});
+   s.pts=[[cx,cy],...nodes.map(n=>[n.x,n.y])];
+   nodes.forEach(n=>{const r=(4.5+n.near*4+jn*2)*Math.min(1,build*1.8);if(r<=0)return;x.globalAlpha=1;x.fillStyle='#B9DDD1';x.strokeStyle='#FAF3C8';x.lineWidth=1.5;x.beginPath();x.arc(n.x,n.y,r,0,6.283);x.fill();x.stroke()});
+   const cr=9+Math.sin(t*2.4)*2+jn*8,g=x.createRadialGradient(cx,cy,0,cx,cy,cr*3.2);g.addColorStop(0,'rgba(242,108,29,.85)');g.addColorStop(1,'rgba(242,108,29,0)');
+   x.globalAlpha=Math.min(1,conv*1.4);x.fillStyle=g;x.beginPath();x.arc(cx,cy,cr*3.2,0,6.283);x.fill();x.fillStyle='#FAF3C8';x.beginPath();x.arc(cx,cy,cr*.7,0,6.283);x.fill();
+   for(let k=0;k<2;k++){const ph=(t*.5+k*.5)%1;x.strokeStyle='#F26C1D';x.lineWidth=1.5;x.globalAlpha=(1-ph)*.5*conv;x.beginPath();x.arc(cx,cy,14+ph*80,0,6.283);x.stroke()}
+   if(jn>0){const D=Math.hypot(W,H);x.globalAlpha=Math.max(0,1-jn/1.1)*.8;x.strokeStyle='#FAF3C8';x.lineWidth=2;x.beginPath();x.arc(cx,cy,jn*.55*D,0,6.283);x.stroke();
+    if(jn>.6){x.globalAlpha=1;x.fillStyle=bg;x.beginPath();x.arc(cx,cy,(jn-.6)/1*D*1.05,0,6.283);x.fill()}}
+   x.globalAlpha=1;
+   if(jn>=1.6&&!s.done){s.done=1;onEnter();return}
+   if(!RM)raf=requestAnimationFrame(frame)};
+  size();if(RM)frame(0);else raf=requestAnimationFrame(frame);
+  const rs=()=>{size();if(RM)frame(0)};addEventListener('resize',rs);
+  return()=>{cancelAnimationFrame(raf);removeEventListener('resize',rs)}},[]);
+ return html`<div class=${'gt'+(mode==='join'?' jn':'')} onPointerMove=${mv} onPointerLeave=${()=>{S.current.mx=-999}}>
+  <canvas ref=${cv} class="gtc" aria-hidden="true" onPointerDown=${pd}></canvas>
+  <div class="gtt"><div class="gtk">Smart Event IT Checklist</div><h1 class="gth">منصة إدارة وتجهيز البنية التحتية التقنية للفعاليات البلدية</h1></div>
+  <div class="gtf"><button class="gtb" onClick=${join}>تشغيل الشبكة وفتح النظام</button><div class="gtn">حرّك المؤشر فوق الخيوط، أو اضغط على نقطة الاتصال المركزية</div></div></div>`}
+const KEY='sec_v4',CRIT=['fw','sw','ups'];
+const PARTY=['البلدية','الشركة المشغّلة','مورد خارجي','جهة أخرى'],ROPT=['','أحمد','ظهير','سلفراد','البلدية','الشركة المشغّلة','مورد خارجي'];
+const PRES=[['ap','نقاط الوصول'],['cam','الكاميرات'],['led','الشاشات'],['ups','أجهزة UPS'],['sw','السويتشات'],['pc','الحواسيب والطابعات']];
+const BASEQ={'مهرجان':{ap:4,cam:7,led:1,ups:2,sw:1,pc:1},'مؤتمر':{ap:5,cam:3,led:2,ups:2,sw:1,pc:3},'معرض':{ap:6,cam:4,led:2,ups:2,sw:1,pc:2},'احتفال':{ap:3,cam:5,led:2,ups:2,sw:1,pc:1},'حملة ميدانية':{ap:1,cam:1,led:0,ups:1,sw:1,pc:1}};
+const dayF=d=>d<=2?1:d<=5?1.2:1.5;
+const SP0=[
+['SP-SW-01','سويتش 24 منفذ احتياطي','sw','المستودع الرئيسي','متاح','البلدية','جاهز','أحمد',6,'متوافق'],
+['SP-SW-02','سويتش احتياطي (إعارة)','sw','مستودع الشركة المشغّلة','متاح','الشركة المشغّلة','يحتاج فحص','أحمد',48,'يحتاج التحقق من التوافق'],
+['SP-FW-01','راوتر وجدار ناري احتياطي','fw','المستودع الرئيسي','متاح','البلدية','جاهز','أحمد',12,'متوافق'],
+['SP-AP-01','نقطة وصول احتياطية 1','ap','المستودع الرئيسي','متاح','البلدية','جاهز','ظهير',9,'متوافق'],
+['SP-AP-02','نقطة وصول احتياطية 2','ap','موقع مهرجان الحنيذ 3','متاح','البلدية','جاهز','ظهير',20,'متوافق'],
+['SP-CAM-01','كاميرا مراقبة احتياطية','cam','المستودع الرئيسي','متاح','البلدية','جاهز','ظهير',15,'متوافق'],
+['SP-NVR-01','مسجل NVR احتياطي','nvr','المستودع الرئيسي','صيانة','البلدية','يحتاج فحص','ظهير',63,'متوافق'],
+['SP-UPS-01','وحدة UPS احتياطية','ups','مستودع المورد','متاح','مورد خارجي','جاهز','سلفراد',27,'متوافق'],
+['SP-LED-01','شاشة LED احتياطية','led','المستودع الرئيسي','متاح','الشركة المشغّلة','جاهز','سلفراد',33,'متوافق'],
+['SP-PC-01','حاسب محمول احتياطي','pc','المستودع الرئيسي','متاح','البلدية','جاهز','أحمد',4,'متوافق']
+].map(([id,name,type,loc,status,own,ready,who,chk,compat])=>({id,name,type,loc,status,own,ready,who,chk,compat,assign:null}));
+const typeOf=m=>/طارئة|تنبيه عطل/.test(m)?'تسجيل عطل':/تم إصلاح|تمت معالجة/.test(m)?'إغلاق بلاغ':/^بدأ/.test(m)?'بدء المعالجة':/أُسندت/.test(m)?'إسناد مهمة':/أصبح .* مسؤولاً/.test(m)?'تغيير المسؤول':/^عهدة/.test(m)?'تحديث العهدة':/تذكير/.test(m)?'تذكير':/تنبيه تأخير/.test(m)?'تأخر مهمة':/المدير/.test(m)?'إشعار المدير':/توليد/.test(m)?'إنشاء الفعالية':'حدث';
+const seed=()=>{const s=mkSites();return{v:4,sites:s,spares:JSON.parse(JSON.stringify(SP0)),
+ plan:{type:'مهرجان',sn:3,days:3,rows:{ap:{req:12,have:9,op:0},cam:{req:20,have:18,op:0},led:{req:3,have:3,op:0},ups:{req:5,have:4,op:0},sw:{req:3,have:3,op:0},pc:{req:4,have:4,op:0}}},
+ evlog:s.flatMap((z,i)=>[{id:'c'+i,t:Date.now()-(9-i)*864e5,type:'إنشاء الفعالية',site:i,who:'المدير (تجريبي)',msg:'تم إنشاء فعالية '+z.name+' وتوليد '+z.items.length+' مهمة'},{id:'d'+i,t:Date.now()-(8-i)*864e5,type:'إضافة أجهزة',site:i,who:'أحمد',msg:'أُضيفت أجهزة '+z.name+' إلى السجل مع تحديد المسؤولين'}]).sort((a,b)=>b.t-a.t),
+ incs:[],log:[],evs:[],hist:{},resp:[],emers:[],notes:[],reqs:[],zt:[]}};
+const ST0=(()=>{try{const j=JSON.parse(localStorage.getItem(KEY));if(j&&j.v===4&&j.sites)return j}catch(e){}return seed()})();
+const fmtT=t=>new Date(t).toLocaleString('ar-SA-u-ca-gregory',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+
+const ZONES2=[['غرفة التحكم',20,20,300,200],['المسرح الرئيسي',340,20,320,200],['المدخل',680,20,260,200],['منطقة الأكشاك',20,240,300,170],['ساحة الفعاليات',340,240,320,170],['المواقف',680,240,260,170],['منطقة الطاقة',20,430,300,150]];
+// code, نوع, node, zone, x, y, الاسم, الموقع المحدد
+const ZD=[
+['RT-01','راوتر','fw','غرفة التحكم',90,78,'راوتر الاتصال الرئيسي','غرفة التحكم / المدخل'],
+['PC-01','لابتوب','pc','غرفة التحكم',240,78,'لابتوب التشغيل والمتابعة','غرفة التحكم / الأكشاك'],
+['SW-01','سويتش','sw','غرفة التحكم',240,125,'سويتش التوزيع الرئيسي','غرفة التحكم / المركز الرئيسي'],
+['NVR-01','مسجل NVR','nvr','غرفة التحكم',90,172,'مسجل كاميرات المراقبة','غرفة التحكم'],
+['UPS-01','UPS','ups','غرفة التحكم',240,172,'مزود الطاقة المستمرة','المسرح الرئيسي / غرفة التحكم'],
+['SW-02','سويتش','sw','المسرح الرئيسي',400,125,'سويتش المسرح والشاشات','المسرح الرئيسي'],
+['AP-01','نقطة وصول','ap','المسرح الرئيسي',505,78,'نقطة وصول لاسلكي (المسرح)','المسرح الرئيسي'],
+['CAM-02','كاميرا','cam','المسرح الرئيسي',505,172,'كاميرا المسرح الرئيسي','المسرح الرئيسي'],
+['CAM-03','كاميرا','cam','المسرح الرئيسي',605,78,'كاميرا المنصة والشاشة','المسرح الرئيسي — جهة المنصة'],
+['SCR-01','شاشة LED','led','المسرح الرئيسي',605,172,'شاشة LED العرض (المسرح)','المسرح الرئيسي'],
+['SW-03','سويتش','sw','المدخل',740,125,'سويتش المدخل والبوابات','المدخل'],
+['CAM-01','كاميرا','cam','المدخل',860,78,'كاميرا المدخل الرئيسي','المدخل — البوابة الرئيسية'],
+['PRN-01','طابعة','pc','المدخل',860,172,'طابعة التذاكر والتقارير','المدخل / الاستقبال'],
+['SW-04','سويتش','sw','منطقة الأكشاك',85,325,'سويتش الأكشاك','منطقة الأكشاك'],
+['CAM-04','كاميرا','cam','منطقة الأكشاك',250,295,'كاميرا منطقة الأكشاك','منطقة الأكشاك'],
+['AP-02','نقطة وصول','ap','منطقة الأكشاك',250,365,'نقطة وصول لاسلكي (الأكشاك)','منطقة الأكشاك'],
+['CAM-06','كاميرا','cam','ساحة الفعاليات',430,325,'كاميرا ساحة الفعاليات','ساحة الفعاليات / العائلات'],
+['SCR-02','شاشة LED','led','ساحة الفعاليات',570,325,'شاشة LED العرض (الساحة)','ساحة الفعاليات'],
+['SW-05','سويتش','sw','المواقف',740,325,'سويتش المواقف','المواقف'],
+['CAM-05','كاميرا','cam','المواقف',860,325,'كاميرا المواقف','المواقف'],
+['GEN-01','مولد','ups','منطقة الطاقة',75,505,'مولد الكهرباء الاحتياطي','منطقة الطاقة / خارج المسرح'],
+['CBL-01','كيابل','sw','منطقة الطاقة',200,505,'كيابل الربط والشبكة والطاقة','موزعة بين المناطق']];
+const ZL=[['RT-01','SW-01','d'],['SW-01','SW-02','d'],['SW-01','SW-03','d'],['SW-01','NVR-01','d'],['SW-01','PC-01','d'],['SW-01','CBL-01','d'],['CBL-01','SW-04','d'],['CBL-01','SW-05','d'],['SW-02','AP-01','d'],['SW-02','CAM-02','d'],['SW-02','CAM-03','d'],['SW-02','SCR-01','d'],['SW-03','CAM-01','d'],['SW-03','PRN-01','d'],['SW-04','CAM-04','d'],['SW-04','AP-02','d'],['SW-04','SCR-02','d'],['SW-04','CAM-06','d'],['SW-05','CAM-05','d'],['UPS-01','SW-01','p'],['UPS-01','NVR-01','p'],['GEN-01','UPS-01','b']];
+const ZR={'مهرجان':ZD.map(d=>d[0]),
+'مؤتمر':['RT-01','SW-01','SW-02','SW-03','CAM-01','CAM-02','CAM-03','NVR-01','SCR-01','AP-01','UPS-01','PC-01','PRN-01'],
+'معرض':['RT-01','SW-01','SW-03','SW-04','CBL-01','CAM-01','CAM-04','CAM-06','NVR-01','AP-02','SCR-02','UPS-01','PC-01','PRN-01'],
+'احتفال':['RT-01','SW-01','SW-02','SW-03','SW-04','CBL-01','CAM-01','CAM-02','CAM-03','CAM-06','NVR-01','SCR-01','SCR-02','AP-01','UPS-01','GEN-01','PC-01','PRN-01'],
+'حملة ميدانية':['RT-01','SW-01','SW-03','PC-01','PRN-01','UPS-01']};
+const zDevs=t=>{const r=ZR[t]||ZR['مهرجان'];return ZD.filter(d=>r.includes(d[0]))};
+const ZN={};ZD.forEach(d=>ZN[d[0]]=d[2]);
+const zSN=c=>'SN-'+c.replace('-','')+'-'+(2600+ZD.findIndex(d=>d[0]===c)*37);
+const zLM=c=>{const i=ZD.findIndex(d=>d[0]===c);return '2026-'+(i%2?'09':'08')+'-'+String(1+(i*5)%27).padStart(2,'0')};
+const ZLB={ok:'تمام',weak:'ضعيف',fault:'عطل'};
+const zEff=(zst,type)=>{zst=zst||{};const R=ZR[type]||ZR['مهرجان'],eff={};R.forEach(c=>eff[c]={own:zst[c]||'ok',down:[],weak:[]});
+ const kids=id=>ZL.filter(l=>l[0]===id&&eff[l[1]]).map(l=>[l[1],l[2]]);
+ R.forEach(c=>{const st=zst[c]||'ok';if(st==='ok')return;const q=kids(c),seen=new Set();
+  while(q.length){const [x,k]=q.pop();if(seen.has(x))continue;seen.add(x);
+   if(st==='fault'&&k==='b'){eff[x].weak.push(c);continue}
+   eff[x][st==='fault'?'down':'weak'].push(c);kids(x).forEach(n=>q.push(n))}});
+ return eff};
+const zCat=e=>e.own==='fault'?'fault':e.down.length?'down':(e.own==='weak'||e.weak.length)?'weak':'ok';
+const zHealth=(zst,type)=>{const E=zEff(zst,type),c={ok:0,weak:0,fault:0,down:0},R=Object.keys(E);R.forEach(k=>c[zCat(E[k])]++);return{...c,total:R.length,pct:Math.round(c.ok/R.length*100),E}};
+const zZone=(E,zone)=>{const c=ZD.filter(d=>d[3]===zone&&E[d[0]]).map(d=>zCat(E[d[0]]));if(!c.length)return null;const f=c.some(x=>x==='fault'||x==='down'),w=c.some(x=>x==='weak');return{n:c.length,st:f?'fault':w?'weak':'ok',pct:Math.round((c.filter(x=>x==='ok').length+c.filter(x=>x==='weak').length*.5)/c.length*100)}};
+const ZSL={ok:'جاهز',weak:'جاري التجهيز',fault:'يوجد نقص'};
+
+const SCR=[['board','لوحة التجهيز'],['cmd','مركز القيادة'],['zones','خريطة المناطق'],['exec','قرارات المدير'],['sp','الأجهزة الاحتياطية'],['plan','تخطيط الاحتياج'],['mx','المسؤوليات'],['log','سجل الأحداث']];
+const SCEN=[['ap','fault','تعطل نقطة اتصال (Access Point) قبل الافتتاح'],['cam','short','نقص في كاميرات المراقبة قبل الافتتاح'],['ups','fault','تعطل وحدة الطاقة الاحتياطية (UPS)'],['led','short','نقص في شاشة العرض (LED)']];
+function GoLive({site,C}){
+ const [now,setNow]=useState(Date.now());useEffect(()=>{const i=setInterval(()=>setNow(Date.now()),1000);return()=>clearInterval(i)},[]);
+ const L=Math.max(0,site.start-now),d=Math.floor(L/864e5),h=Math.floor(L%864e5/36e5),m=Math.floor(L%36e5/6e4),sc=Math.floor(L%6e4/1e3),z=n=>String(n).padStart(2,'0');
+ const rem=site.items.filter(i=>i.s!=='done').length,lt=site.items.filter(i=>i.s==='late').length,fl=Object.keys(site.faults).length+(zq=>zq.fault+zq.down)(zHealth(site.zst,site.type)),blk=lt+fl,go=C.eff===100&&!blk;
+ const pace=rem?Math.ceil(rem/Math.max(L/864e5,.25)*10)/10:0;
+ return html`<div class="card" style=${{margin:'12px 0'}}><div class="gl"><div>
+  <div class="row" style=${{flexWrap:'wrap'}}><h2 style=${{margin:0}}>مؤشر جاهزية التشغيل (Go-Live)</h2><span class=${'badge '+(go?'b-ready':'b-short')}>${go?'جاهز للتشغيل':'غير جاهز للتشغيل'}</span></div>
+  <div class="gb" role="img" aria-label=${'الجاهزية الفعلية '+C.eff+'% من المطلوب 100%'}><i style=${{width:C.eff+'%',background:go?'var(--mintd)':blk?'var(--or)':'var(--blued)'}}></i><em></em></div>
+  <div class="row" style=${{flexWrap:'wrap',gap:16}}><span>الفعلية <b>${C.eff}%</b></span><span>المطلوب للتشغيل <b>100%</b></span><span>الفجوة <b>${100-C.eff}%</b></span><span style=${{color:blk?'var(--ord)':'inherit'}}>معوّقات التشغيل <b>${blk}</b> (${lt} متأخرة، ${fl} أعطال)</span></div>
+  <div class="mut" style=${{marginTop:4}}>${rem?'المتبقي '+rem+' مهام · المطلوب إنجاز نحو '+pace+' مهمة يومياً للحاق بالموعد':'اكتملت جميع المهام'}</div></div>
+  <div><div class="mut" style=${{marginBottom:4,textAlign:'center'}}>العدّ التنازلي لافتتاح ${site.name} · ${new Date(site.start).toLocaleDateString('ar-SA-u-ca-gregory',{day:'numeric',month:'long'})} (موعد تجريبي)</div>
+  <div class="cd"><div><b>${d}</b><span class="mut">يوم</span></div><div><b>${z(h)}</b><span class="mut">ساعة</span></div><div><b>${z(m)}</b><span class="mut">دقيقة</span></div><div><b>${z(sc)}</b><span class="mut">ثانية</span></div></div></div></div></div>`}
+function App(){
+ const [sites,setSites]=useState(ST0.sites),[cur,setCur]=useState(0),[sel,setSel]=useState(null),[draft,setDraft]=useState(ST0.sites[0].type);
+ const [notes,setNotes]=useState(ST0.notes),[log,setLog]=useState(ST0.log),[hist,setHist]=useState(ST0.hist),[resp,setResp]=useState(ST0.resp),[evs,setEvs]=useState(ST0.evs),[spares,setSpares]=useState(ST0.spares),[plan,setPlan]=useState(ST0.plan),[evlog,setEvlog]=useState(ST0.evlog),[incs,setIncs]=useState(ST0.incs),[reqs,setReqs]=useState(ST0.reqs),[zt,setZt]=useState(ST0.zt),[selZ,setSelZ]=useState(null),[zf,setZf]=useState({zone:'all',st:'all',q:''}),[scr,setScr]=useState('board'),[openRec,setOpenRec]=useState(null),[selInc,setSelInc]=useState(null),[evf,setEvf]=useState({site:'all',who:'all',type:'all',q:''}),[sf,setSf]=useState({type:'all',st:'all'}),[dk,setDk]=useState(()=>!!(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)),[scope,setScope]=useState('cur'),[scan,setScan]=useState(false),[emers,setEmers]=useState(ST0.emers),[altId,setAltId]=useState(null),[man,setMan]=useState(8),[sysm,setSysm]=useState(1),[toast,setToast]=useState('');
+ const [chat,setChat]=useState([{a:1,t:'أهلاً، اسألني عن الجاهزية والأعطال والمتأخرات والأداء.'}]),[q,setQ]=useState(''),[lf,setLf]=useState({dev:'sw',action:'تسليم للفعالية',cond:'سليم'});
+ const sent=useRef({}),ecnt=useRef(0),[view,setView]=useState('gate');
+ const site=sites.find(s=>s.id===cur),C=calc(site),all=sites.map(calc);
+ const say=m=>{setToast(m);clearTimeout(say.h);say.h=setTimeout(()=>setToast(''),4200)};
+ const note=(m,t,sid)=>{setNotes(n=>[{t:clock(),m},...n].slice(0,30));const w=TECHS.find(x=>m.includes(x));setEvlog(l=>[{id:Date.now()+Math.random(),t:Date.now(),type:t||typeOf(m),site:sid===undefined?cur:sid,who:w||'المدير (تجريبي)',msg:m},...l].slice(0,300))};
+ const upd=fn=>setSites(ss=>ss.map(s=>s.id===cur?fn(s):s));
+ useEffect(()=>{setDraft(site.type);setSel(null)},[cur]);
+ useEffect(()=>{if(C.st==='ready'&&!sent.current[cur]){sent.current[cur]=1;note('إشعار إلى المدير: '+site.name+' جاهزة بنسبة 100%');say('تم إرسال إشعار الجاهزية 100% إلى المدير')}if(C.st!=='ready')sent.current[cur]=0},[C.st,cur]);
+ useEffect(()=>{try{localStorage.setItem(KEY,JSON.stringify({v:4,sites,spares,plan,evlog,incs,log,evs,hist,resp,emers,notes,reqs,zt}))}catch(e){}},[sites,spares,plan,evlog,incs,log,evs,hist,resp,emers,notes,reqs,zt]);
+ useEffect(()=>{window.scrollTo(0,0)},[scr]);
+ const cyc=id=>{const it=site.items.find(i=>i.id===id),nx=ORDER[(ORDER.indexOf(it.s)+1)%4];const ri=it.rep&&nx==='done'&&incs.find(x=>x.task===id&&!x.closed);if(ri){finishRep(ri);return}upd(s=>({...s,items:s.items.map(i=>i.id===id?{...i,s:nx}:i)}));if(nx==='late'){note('تنبيه تأخير: مهمة «'+it.label+'» المسندة إلى '+it.who+' متأخرة');say('تنبيه تأخير أُرسل إلى '+it.who)}};
+ const assign=(id,who)=>{const it=site.items.find(i=>i.id===id);upd(s=>({...s,items:s.items.map(i=>i.id===id?{...i,who}:i)}));note('أُسندت مهمة «'+it.label+'» إلى '+who)};
+ const setOwner=(n,who)=>{upd(s=>({...s,owners:{...s.owners,[n]:who},items:s.items.map(i=>i.node===n?{...i,who}:i)}));note('أصبح '+who+' مسؤولاً عن '+NM[n].ar+' ومهامه')};
+ const faultAt=(sid,id)=>{const z=sites.find(x=>x.id===sid);if(z.faults[id])return null;
+  setSites(ss=>ss.map(s=>s.id===sid?{...s,faults:{...s.faults,[id]:{at:Date.now()}}}:s));setHist(h=>({...h,[id]:(h[id]||0)+1}));setEvs(e=>[...e,{who:z.owners[id],node:id,site:sid}]);
+  const iid=openInc(sid,id,'fault','تعطل '+NM[id].ar,CRIT.includes(id)?'حرج':'عالٍ');
+  note('تنبيه عطل: '+NM[id].ar+' في '+z.name+' — المسؤول: '+z.owners[id],'تسجيل عطل',sid);say('تنبيه عطل أُرسل إلى '+z.owners[id]);return iid};
+ const fault=id=>faultAt(cur,id);
+ const fixAt=(sid,id)=>{const z=sites.find(x=>x.id===sid),f=z.faults[id];
+  if(f)setResp(r=>[...r,{who:z.owners[id],s:Math.max(1,Math.round((Date.now()-f.at)/1000))}]);
+  setSites(ss=>ss.map(s=>{if(s.id!==sid)return s;const x={...s.faults};delete x[id];return{...s,faults:x}}));
+  const inc=incs.find(x=>x.site===sid&&x.node===id&&!x.closed);if(inc&&inc.spare)cancelAssign(inc,true);closeInc(sid,id);
+  note('تم إصلاح '+NM[id].ar+' بواسطة '+z.owners[id]+' — أُغلق البلاغ','إغلاق بلاغ',sid);say('تم الإصلاح وعاد المسار للعمل')};
+ const fix=id=>fixAt(cur,id);
+ const readyNode=id=>upd(s=>({...s,items:s.items.map(i=>i.node===id?{...i,s:'done'}:i)}));
+ const live=e=>{const z=sites.find(x=>x.id===e.site);return e.kind==='fault'?!!z.faults[e.node]:z.items.some(i=>i.node===e.node&&i.s==='late')};
+ const emergency=()=>{const off=OFF[site.type]||[];let sc=null;
+  for(let k=0;k<SCEN.length;k++){const c=SCEN[(ecnt.current+k)%SCEN.length];if(!off.includes(c[0])&&!site.faults[c[0]]&&!emers.some(e=>e.site===cur&&e.node===c[0]&&live(e))){sc=c;ecnt.current=(ecnt.current+k+1)%SCEN.length;break}}
+  if(!sc){say('كل سيناريوهات الطوارئ مفعّلة بالفعل في هذا الموقع');return}
+  const [n,kind,text]=sc,who=site.owners[n];
+  if(kind==='fault')fault(n);else{const it=site.items.find(i=>i.node===n);upd(s=>({...s,items:s.items.map(i=>i.id===it.id?{...i,s:'late'}:i)}));openInc(cur,n,'short',text,'عالٍ')}
+  setEmers(e=>[...e,{site:cur,node:n,kind,text,who,ack:false,id:Date.now()}]);setSel(n);
+  note('حالة طارئة في '+site.name+': '+text+' — المسؤول: '+who);say('حالة طارئة: '+text+' · المسؤول '+who)};
+ const ackEm=e=>{setEmers(a=>a.map(x=>x.id===e.id?{...x,ack:true}:x));note('بدأ '+e.who+' معالجة: '+e.text)};
+ const resolveEm=e=>{if(e.kind==='fault')fix(e.node);else{readyNode(e.node);closeInc(e.site,e.node)}note('تمت معالجة الحالة الطارئة: '+e.text+' (بواسطة '+e.who+')')};
+ const addHo=()=>{const d=C.ns[lf.dev]!=='off'?NM[lf.dev]:NODES.find(n=>C.ns[n.id]!=='off'),who=site.owners[d.id];setLog(l=>[{site:cur,devId:d.id,dev:d.ar,who,action:lf.action,cond:lf.cond,t:clock()},...l]);note('عهدة: '+lf.action+' — '+d.ar+' ('+lf.cond+') · المسؤول: '+who);say('تم توثيق '+lf.action+' للجهاز '+d.ar)};
+ const openInc=(sid,node,kind,title,sev)=>{const id='I-'+sid+node+Date.now();setIncs(a=>a.some(x=>x.site===sid&&x.node===node&&!x.closed)?a:[...a,{id,site:sid,node,kind,title,sev,t:Date.now(),ack:false,spare:null,task:null,closed:false}]);return id};
+ const closeInc=(sid,node)=>setIncs(a=>a.map(x=>x.site===sid&&x.node===node&&!x.closed?{...x,closed:true,ct:Date.now()}:x));
+ const ackInc=x=>{setIncs(a=>a.map(y=>y.id===x.id?{...y,ack:true}:y));note('بدأ '+sites.find(s=>s.id===x.site).owners[x.node]+' معالجة: '+x.title,'بدء المعالجة',x.site)};
+ const load=w=>sites.flatMap(s=>s.items).filter(i=>i.who===w&&i.s!=='done').length;
+ const pickTech=(z,n)=>{const o=z.owners[n],m=[...TECHS].sort((a,b)=>load(a)-load(b))[0];return load(o)<=load(m)+2?o:m};
+ const findSpare=n=>{const c=spares.filter(p=>p.type===n&&p.status==='متاح');if(!c.length)return null;
+  const sc=p=>(p.ready==='جاهز'?4:0)+(p.compat==='متوافق'?3:0)+(p.own==='البلدية'?2:0)+(p.loc==='المستودع الرئيسي'?1:0)-Math.min(p.chk,60)/60;
+  return [...c].sort((a,b)=>sc(b)-sc(a))[0]};
+ const makeTask=(x,pp)=>{const p=pp||spares.find(s=>s.id===x.spare),z=sites.find(s=>s.id===x.site),tech=pickTech(z,x.node),tid='rep-'+x.id;
+  setSites(ss=>ss.map(s=>s.id===x.site?{...s,items:[...s.items,{id:tid,node:x.node,label:'استبدال '+NM[x.node].ar+' بالجهاز الاحتياطي '+p.id,s:'prog',who:tech,rep:true}]}:s));
+  setIncs(a=>a.map(y=>y.id===x.id?{...y,task:tid}:y));
+  note('إنشاء مهمة استبدال '+NM[x.node].ar+' بـ '+p.id+' وإسنادها إلى '+tech,'إنشاء مهمة',x.site);say('أُنشئت مهمة استبدال وأُسندت إلى '+tech)};
+ const allocate=(x,both)=>{const p=findSpare(x.node);if(!p){say('لا يوجد جهاز بديل متاح من هذا النوع');return}
+  setSpares(a=>a.map(y=>y.id===p.id?{...y,status:'مخصص',assign:{site:x.site,node:x.node}}:y));
+  setIncs(a=>a.map(y=>y.id===x.id?{...y,spare:p.id,ack:true}:y));
+  note('تخصيص الجهاز الاحتياطي '+p.id+' ('+p.name+') لبلاغ «'+x.title+'» · المسؤول عن النقل: '+p.who,'تخصيص احتياطي',x.site);
+  if(both)makeTask({...x,spare:p.id},p);else say('تم تخصيص '+p.id+' وتحديث المخزون')};
+ const cancelAssign=(x,silent)=>{setSpares(a=>a.map(y=>y.id===x.spare?{...y,status:'متاح',assign:null}:y));
+  setSites(ss=>ss.map(s=>s.id===x.site?{...s,items:s.items.filter(i=>i.id!==x.task)}:s));
+  setIncs(a=>a.map(y=>y.id===x.id?{...y,spare:null,task:null}:y));
+  note('إلغاء تخصيص الجهاز الاحتياطي '+x.spare+' لبلاغ «'+x.title+'»','تخصيص احتياطي',x.site);if(!silent)say('أُلغي التخصيص وحُذفت مهمة الاستبدال')};
+ const finishRep=x=>{const z=sites.find(s=>s.id===x.site),f=z.faults[x.node];
+  if(f)setResp(r=>[...r,{who:z.owners[x.node],s:Math.max(1,Math.round((Date.now()-f.at)/1000))}]);
+  setSites(ss=>ss.map(s=>{if(s.id!==x.site)return s;const f2={...s.faults};delete f2[x.node];return{...s,faults:f2,items:s.items.map(i=>i.id===x.task?{...i,s:'done'}:(x.kind==='short'&&i.node===x.node?{...i,s:'done'}:i))}}));
+  setIncs(a=>a.map(y=>y.id===x.id?{...y,closed:true,ct:Date.now(),done:true}:y));
+  setSpares(a=>a.map(y=>y.id===x.spare?{...y,status:'قيد الاستخدام',loc:'موقع '+z.name}:y));
+  setLog(l=>[{site:x.site,devId:x.node,dev:NM[x.node].ar+' (الأصلي)',who:z.owners[x.node],action:'إرجاع بعد الفعالية',cond:'يحتاج صيانة',t:clock()},...l]);
+  note('تم إصلاح '+NM[x.node].ar+' باستبداله بالجهاز '+x.spare+' — أُغلق البلاغ وسُجّل الجهاز الأصلي للصيانة','إغلاق بلاغ',x.site);say('اكتمل الاستبدال وأُغلق البلاغ وعاد المسار للعمل')};
+ const request=(label,sid)=>{setReqs(a=>[...a,{id:'REQ-'+(a.length+1),label,t:Date.now(),site:sid}]);note('رفع طلب احتياج: '+label,'طلب احتياج',sid);say('تم رفع طلب الاحتياج')};
+ const decide=(m,sid)=>{note(m,'قرار إداري',sid);say('سُجّل القرار في سجل الأحداث')};
+ const inspect=ids=>{setSpares(a=>a.map(p=>ids.includes(p.id)?{...p,chk:0,ready:'جاهز',status:p.status==='صيانة'?'متاح':p.status}:p));note('تم فحص '+ids.length+' جهاز احتياطي ('+ids.join('، ')+')','فحص',null);say('تم تسجيل الفحص')};
+ const moveSpare=(id,loc)=>{setSpares(a=>a.map(p=>p.id===id?{...p,loc}:p));note('تغيير موقع الجهاز '+id+' إلى '+loc,'تغيير موقع جهاز',null)};
+ const avail=t=>spares.filter(p=>p.type===t&&p.status==='متاح'&&p.ready==='جاهز').length;
+ const setRow=(r,k,v)=>setPlan(p=>({...p,rows:{...p.rows,[r]:{...p.rows[r],[k]:Math.max(0,+v||0)}}}));
+ const planReserve=res=>{const r=plan.rows[res],short=Math.max(0,r.req-r.have-r.op),n=Math.min(short,avail(res));if(!n){say('لا توجد أجهزة جاهزة متاحة من هذا النوع');return}
+  const ids=spares.filter(p=>p.type===res&&p.status==='متاح'&&p.ready==='جاهز').slice(0,n).map(p=>p.id);
+  setSpares(a=>a.map(p=>ids.includes(p.id)?{...p,status:'محجوز'}:p));setRow(res,'have',r.have+n);
+  note('تخصيص '+n+' من المخزون الاحتياطي لخطة الاحتياج ('+ids.join('، ')+')','تخصيص احتياطي',null);say('تم تخصيص '+n+' من المخزون وتحديث الأرقام')};
+ const setR=(n,k,v)=>{setSites(ss=>ss.map(s=>s.id===cur?{...s,resp:{...s.resp,[n]:{...s.resp[n],[k]:v}}}:s));note('تغيير المسؤول: '+({own:'مالك الجهاز',op:'جهة التشغيل',inst:'مسؤول التركيب',mnt:'مسؤول الصيانة',hov:'مسؤول الاستلام والتسليم'})[k]+' لـ '+NM[n].ar+' ← '+(v||'غير محدد'),'تغيير المسؤول')};
+ const remindFor=sid=>{const z=sites.find(x=>x.id===sid),late=z.items.filter(i=>i.s==='late');if(!late.length){say('لا توجد مهام متأخرة');return}
+  const by={};late.forEach(i=>(by[i.who]=by[i.who]||[]).push(i.label));Object.entries(by).forEach(([w,l])=>note('تذكير تلقائي إلى '+w+': '+l.length+' متأخرة في '+z.name+' — «'+l[0]+'»'+(l.length>1?' وغيرها':''),'تذكير',sid));say('أُرسلت تذكيرات إلى '+Object.keys(by).join(' و'))};
+ const simSwitch=()=>{if(site.faults.sw){say('السويتش الرئيسي معطّل بالفعل في هذا الموقع');return}const id=faultAt(cur,'sw');setSelInc(id);setAltId(null);setScr('cmd')};
+ const resetAll=()=>{const z=seed();setSites(z.sites);setSpares(z.spares);setPlan(z.plan);setEvlog(z.evlog);setIncs([]);setLog([]);setEvs([]);setHist({});setResp([]);setEmers([]);setNotes([]);setReqs([]);setZt([]);setSelZ(null);setCur(0);setSel(null);setSelInc(null);setAltId(null);sent.current={};try{localStorage.removeItem(KEY)}catch(e){}say('أُعيدت البيانات التجريبية إلى وضعها الأصلي')};
+ const toggleTheme=()=>{const n=!dk;setDk(n);document.documentElement.dataset.theme=n?'dark':'light'};
+ const zOwner=(z,d)=>z.owners[ZN[d]];
+ const zSet=(sid,dev,st,msg,typ)=>{const z=sites.find(x=>x.id===sid);if(((z.zst||{})[dev]||'ok')===st)return;
+  setSites(ss=>ss.map(s=>s.id===sid?{...s,zst:{...(s.zst||{}),[dev]:st}}:s));
+  if(st==='ok')setZt(a=>a.map(t=>t.site===sid&&t.dev===dev&&t.open?{...t,open:false}:t));
+  note(msg||('محاكاة: '+dev+' أصبح '+ZLB[st]+' في '+ZD.find(d=>d[0]===dev)[3]+' — المسؤول: '+zOwner(z,dev)),typ||(st==='ok'?'إغلاق بلاغ':'تسجيل عطل'),sid)};
+ const zRestart=(sid,dev)=>{const z=sites.find(x=>x.id===sid);zSet(sid,dev,'ok','إعادة تشغيل / فك تعليق '+dev+' بواسطة '+zOwner(z,dev)+' — عاد إلى حالة تمام','إغلاق بلاغ');say('تمت إعادة تشغيل '+dev+' وعاد إلى تمام')};
+ const zTicket=(sid,dev)=>{const z=sites.find(x=>x.id===sid);if(zt.some(t=>t.site===sid&&t.dev===dev&&t.open)){say('البلاغ العاجل مُسند بالفعل');return}
+  setZt(a=>[...a,{id:'ZT-'+(a.length+1),site:sid,dev,who:zOwner(z,dev),t:Date.now(),open:true}]);note('إسناد بلاغ عاجل لـ '+dev+' إلى '+zOwner(z,dev),'إسناد مهمة',sid);say('أُسند بلاغ عاجل إلى '+zOwner(z,dev))};
+ const zAllOk=sid=>{setSites(ss=>ss.map(s=>s.id===sid?{...s,zst:{}}:s));setZt(a=>a.map(t=>t.site===sid?{...t,open:false}:t));note('استعادة جميع أجهزة المناطق إلى حالة تمام','إغلاق بلاغ',sid);say('أُعيدت جميع الأجهزة إلى تمام')};
+
+
+ const remind=()=>remindFor(cur);
+ const regen=()=>{setSites(ss=>ss.map(s=>s.id===cur?{...s,type:draft,items:gen(draft,.2).map(i=>({...i,who:s.owners[i.node]})),faults:{}}:s));setSel(null);setIncs(a=>a.map(x=>x.site===cur?{...x,closed:true}:x));setSpares(a=>a.map(p=>p.assign&&p.assign.site===cur?{...p,status:'متاح',assign:null}:p));note('تم توليد قائمة تجهيز '+draft+' لـ '+site.name);say('تم تحديث القائمة والرسم حسب نوع الفعالية')};
+ const dp=ns=>{const it=site.items.filter(i=>ns.includes(i.node));return it.length?Math.round(it.filter(i=>i.s==='done').length/it.length*100):null};
+ const cust={};[...log].reverse().forEach(l=>{cust[l.site+'|'+l.devId]=l});const nf=Object.keys(site.faults).length,mreq=Object.values(cust).filter(l=>l.cond==='يحتاج صيانة').length;
+ const top=Object.entries(hist).sort((a,b)=>b[1]-a[1])[0];
+ const TS=sc=>TECHS.map(w=>{const its=(sc==='all'?sites:[site]).flatMap(s=>s.items).filter(i=>i.who===w),done=its.filter(i=>i.s==='done').length,late=its.filter(i=>i.s==='late').length,rep=evs.filter(v=>v.who===w&&(sc==='all'||v.site===cur)).length,r=resp.filter(v=>v.who===w&&(sc==='all'||true)),av=r.length?Math.round(r.reduce((a,b)=>a+b.s,0)/r.length):null;return{w,tot:its.length,done,late,rep,av,pct:its.length?Math.round(done/its.length*100):0}});
+ const byPerf=(a,b)=>b.pct-a.pct||(a.av==null?9e9:a.av)-(b.av==null?9e9:b.av);
+ const ts=TS(scope),perf=TS('cur').sort(byPerf),fast=[...ts].sort(byPerf)[0].w;
+ const ask=t=>{let a='جرّب: كم فعالية تم تجهيزها؟ ما أكثر الأعطال؟ من الأعلى أداءً؟ ما مهام أحمد؟';
+  const w=TECHS.find(n=>t.includes(n));
+  if(w){const A=TS('all').find(x=>x.w===w),B=TS('cur').find(x=>x.w===w),ls=site.items.filter(i=>i.who===w&&i.s==='late').map(i=>i.label);
+   a=`${w}: في ${site.name} لديه ${B.tot} مهام (${B.done} مكتملة، ${B.late} متأخرة${ls.length?': '+ls.join('، '):''}). على كل الفعاليات: ${A.tot} مهمة، إنجاز ${A.pct}%، ${A.rep} بلاغات${A.av?'، متوسط الاستجابة '+A.av+' ث':''}.`}
+  else if(/جهز|جاهز/.test(t)&&/كم|عدد/.test(t)){const r=sites.filter((s,i)=>all[i].st==='ready');a=`تم تجهيز ${r.length} من ${sites.length} فعاليات بالكامل${r.length?': '+r.map(s=>s.name).join('، '):''}.`}
+  else if(/عطل|أعطال/.test(t))a=top?`أكثر الأعطال تكراراً: ${NM[top[0]].ar} (${top[1]} مرات).`:'لا توجد أعطال مسجلة بعد. جرّب محاكاة عطل من الرسم.';
+  else if(/متأخر/.test(t)){const r=sites.flatMap(s=>s.items.filter(i=>i.s==='late').map(i=>i.who+' ('+s.name+')'));a=r.length?'مهام متأخرة: '+r.join('، '):'لا توجد مهام متأخرة.'}
+  else if(/أداء|فني|أسرع/.test(t))a=`الأعلى أداءً في ${site.name}: ${perf[0].w} بنسبة ${perf[0].pct}%. المقارنة: ${perf.map(p=>p.w+' '+p.pct+'%').join('، ')}.`;
+  else if(/سويتش|SW|منطقة|المناطق|الشبكة الميدانية|أجهزة المهرجان/.test(t)){const H=zHealth(site.zst,site.type),bad=zDevs(site.type).filter(d=>zCat(H.E[d[0]])!=='ok').map(d=>d[0]+' ('+({fault:'عطل',weak:'ضعيف',down:'منقطع بالتبعية'})[zCat(H.E[d[0]])]+')');a=`صحة الشبكة الميدانية في ${site.name}: ${H.pct}% من ${H.total} جهازاً. ${bad.length?'أجهزة تحتاج انتباهاً: '+bad.join('، '):'كل الأجهزة بحالة تمام.'}`}
+  else if(/بلاغ|بديل|احتياطي/.test(t)){const o=incs.filter(x=>!x.closed),f2=spares.filter(p=>p.status==='متاح').length;a=`البلاغات المفتوحة: ${o.length}${o.length?' ('+o.map(x=>x.title).join('، ')+')':''}. الأجهزة الاحتياطية المتاحة: ${f2}.`}
+  else if(/افتتاح|تشغيل|متبقي|يتبقى|عداد|موعد/.test(t)){const L=Math.max(0,site.start-Date.now()),d=Math.floor(L/864e5),h=Math.floor(L%864e5/36e5);a=`يتبقى ${d} يوماً و${h} ساعة على افتتاح ${site.name}. الجاهزية ${C.eff}% من المطلوب 100%، والمهام المتبقية ${site.items.filter(i=>i.s!=='done').length}.`}
+  else if(/عهدة|مستودع|تسليم|إرجاع/.test(t)){const cs=Object.values(cust).filter(l=>l.site===cur);a=cs.length?`في ${site.name}: ${cs.filter(l=>l.action==='تسليم للفعالية').length} أجهزة مسلّمة للفعالية، ${cs.filter(l=>l.cond==='في المستودع').length} في المستودع، ${cs.filter(l=>l.cond==='يحتاج صيانة').length} تحتاج صيانة.`:'لا توجد سجلات عهدة بعد. وثّق تسليماً من سجل العهدة.'}
+  else if(/نسبة|جاهزية/.test(t))a=`جاهزية ${site.name} الآن ${C.eff}% والحالة: ${ST[C.st][0]}.`;
+  setChat(c=>[...c,{t},{a:1,t:a}]);setQ('')};
+ const edge=([a,b,k])=>{const A=NM[a],B=NM[b],sa=C.ns[a],sb=C.ns[b];
+  const down=['fault','aff'].includes(sa)||['fault','aff'].includes(sb),dead=sa==='off'||sb==='off',ok=sa==='ready'&&sb==='ready';
+  const col=down?'var(--ord)':ok?'var(--mintd)':'var(--blued)',dur=down?.7:ok?1.4:3.2,d=`M${A.x} ${A.y}L${B.x} ${B.y}`;
+  return html`<g key=${a+b+(dead?'x':down?'d':ok?'o':'p')}><path d=${d} stroke=${col} strokeWidth="2" strokeOpacity=${dead?.15:.4} strokeDasharray=${k==='p'||down?'5 4':''} fill="none"/>
+   ${!dead&&!RM&&[0,1].map(i=>html`<circle key=${i} r=${k==='p'?3.5:3} fill=${col}><animateMotion dur=${dur+'s'} begin=${'-'+(i*dur/2)+'s'} repeatCount="indefinite" path=${d}/></circle>`)}</g>`};
+ const nodeEl=n=>{const s=C.ns[n.id],fill={ready:'var(--mint)',prog:'var(--blue)',late:'var(--card)',fault:'var(--or)',aff:'var(--blue)',off:'none'}[s],
+  stroke={ready:'var(--mintd)',prog:'var(--blued)',late:'var(--or)',fault:'var(--ord)',aff:'var(--or)',off:'var(--line)'}[s];
+  return html`<g key=${n.id} class="nd" tabIndex="0" role="button" aria-label=${n.ar+' '+s} onClick=${()=>setSel(n.id)} onKeyDown=${e=>e.key==='Enter'&&setSel(n.id)}>
+  ${sel===n.id&&html`<rect x=${n.x-50} y=${n.y-28} width="100" height="56" rx="13" fill="none" stroke="var(--ink)" strokeWidth="1.5"/>`}
+  <rect class=${s==='fault'?'blink':''} x=${n.x-45} y=${n.y-23} width="90" height="46" rx="10" fill=${fill} stroke=${stroke} strokeWidth="2.5" strokeDasharray=${s==='aff'||s==='off'?'5 3':''}/>
+  <text x=${n.x} y=${n.y-3} textAnchor="middle" fontSize="10.5" fontWeight="700" fill="var(--nt)" opacity=${s==='off'?.45:1}>${n.en.split(' ')[0]==='Router'?'Router/FW':n.en.length>14?n.en.split(' ')[0]+' '+(n.en.split(' ')[2]||n.en.split(' ')[1]||''):n.en}</text>
+  <text x=${n.x} y=${n.y+13} textAnchor="middle" fontSize="10" fill="var(--nt)" opacity=${s==='off'?.45:1}>${s==='off'?'غير مطلوب':n.ar.length>16?n.ar.slice(0,15)+'…':n.ar}</text></g>`};
+ const N=sel&&NM[sel],NS=sel&&C.ns[sel];
+ if(view==='gate')return html`<${Gate} C=${C} name=${site.name} onEnter=${()=>setView('sys')}/>`;
+ const liveIncs=incs.filter(x=>!x.closed),PO={'حرج':0,'عالٍ':1,'متوسط':2,'منخفض':3};
+ const lateN=sites.reduce((a,z)=>a+z.items.filter(i=>i.s==='late').length,0);
+ const avgEff=Math.round(all.reduce((a,c)=>a+c.eff,0)/all.length);
+ const techSt=TECHS.map(w=>{const its=sites.flatMap(s=>s.items).filter(i=>i.who===w),op=its.filter(i=>i.s!=='done').length,lt=its.filter(i=>i.s==='late').length,ic=liveIncs.filter(x=>sites.find(s=>s.id===x.site).owners[x.node]===w).length;return{w,op,lt,ic,busy:lt>0||ic>0||op>=14}});
+ const prow=r=>{const x=plan.rows[r];return{...x,short:Math.max(0,x.req-x.have-x.op)}};
+ const projEff=x=>{const z=sites.find(s=>s.id===x.site),d=z.items.filter(i=>i.s==='done').length;return Math.round((d+1)/(z.items.length+(x.task?0:1))*100)};
+ const recs=[];
+ liveIncs.forEach(x=>{const z=sites.find(s=>s.id===x.site),c=all[sites.indexOf(z)],p=x.spare?spares.find(s=>s.id===x.spare):findSpare(x.node),aff=[...c.aff].map(n=>NM[n].ar);
+  const stt=x.task?'مهمة الاستبدال قيد التنفيذ':x.spare?'تم تخصيص بديل وبانتظار مهمة الاستبدال':x.ack?'قيد المعالجة':'لم تبدأ معالجته';
+  recs.push({id:'inc'+x.id,grp:CRIT.includes(x.node)?'تدخل':'متابعة',pri:x.sev,title:x.title+' — '+z.name,
+   why:(x.kind==='fault'?'تعطل ':'نقص في ')+NM[x.node].ar+(aff.length?' ويؤثر على '+aff.length+' أجهزة مرتبطة':'')+' · الحالة: '+stt,
+   data:'الجاهزية الفعلية '+c.eff+'% · الأجهزة المتأثرة: '+(aff.join('، ')||'لا يوجد')+' · '+(p?'البديل: '+p.id+' ('+p.name+')':'لا يوجد بديل متاح'),
+   action:x.task?'إنهاء مهمة الاستبدال وإغلاق البلاغ':p?(x.spare?'إنشاء مهمة الاستبدال وإسنادها':'تخصيص '+p.id+' وإنشاء مهمة الاستبدال'):'رفع طلب توفير جهاز من الشركة المشغّلة',
+   who:z.owners[x.node],site:x.site,
+   btn:x.task?{l:'إنهاء مهمة الاستبدال',f:()=>finishRep(x)}:p?(x.spare?{l:'إنشاء مهمة الاستبدال',f:()=>makeTask(x)}:{l:'تخصيص البديل وإنشاء المهمة',f:()=>allocate(x,true)}):{l:'رفع طلب للشركة المشغّلة',f:()=>request(NM[x.node].ar+' بديل لـ '+z.name,x.site)},
+   btn2:x.ack?null:{l:'بدء المعالجة',f:()=>ackInc(x)}})});
+ sites.forEach((z,i)=>{const c=all[i],L=z.start-Date.now(),rem=z.items.filter(t=>t.s!=='done').length,pace=rem/Math.max(L/864e5,.25),late=z.items.filter(t=>t.s==='late');
+  if(rem&&(pace>6||(L<48*36e5&&rem>3)))recs.push({id:'pace'+i,grp:'تدخل',pri:L<48*36e5?'حرج':'عالٍ',title:'مهام تهدد موعد افتتاح '+z.name,why:'المتبقي '+rem+' مهام ويلزم إنجاز نحو '+(Math.ceil(pace*10)/10)+' مهمة يومياً',data:'الجاهزية '+c.eff+'% · المتبقي للافتتاح '+Math.floor(L/864e5)+' أيام و'+Math.floor(L%864e5/36e5)+' ساعة',action:'إرسال تذكير للمتأخرين وإعادة توزيع المهام على الفنيين المتاحين',who:'مدير التشغيل',site:i,btn:{l:'إرسال تذكير للمتأخرين',f:()=>remindFor(i)}});
+  if(late.length)recs.push({id:'late'+i,grp:'متابعة',pri:'متوسط',title:late.length+' مهام متأخرة في '+z.name,why:'مهام تجاوزت موعدها ولم تكتمل',data:late.map(t=>t.label+' ('+t.who+')').join('، '),action:'إرسال تذكير للمسؤولين ومتابعة الإنجاز',who:[...new Set(late.map(t=>t.who))].join(' و'),site:i,btn:{l:'إرسال تذكير',f:()=>remindFor(i)}});
+  const ol=z.items.filter(t=>t.s!=='done'&&z.resp[t.node].inst==='الشركة المشغّلة');
+  if(ol.length&&L<96*36e5)recs.push({id:'op'+i,grp:'متابعة',pri:'عالٍ',title:'تأخر الشركة المشغّلة في '+z.name,why:'مهام تركيب مسندة إلى الشركة لم تكتمل قبل الافتتاح بأقل من 4 أيام',data:ol.map(t=>t.label).join('، '),action:'التواصل مع الشركة المشغّلة وتثبيت موعد التسليم',who:'الشركة المشغّلة',site:i,btn:{l:'تسجيل متابعة رسمية',f:()=>decide('متابعة رسمية مع الشركة المشغّلة بخصوص '+ol.length+' مهام في '+z.name,i)}});
+  const ms=[];NODES.forEach(n=>{if(c.ns[n.id]!=='off')['inst','mnt','hov'].forEach(k=>{if(!z.resp[n.id][k])ms.push(n.ar+' ('+({inst:'التركيب',mnt:'الصيانة',hov:'الاستلام والتسليم'})[k]+')')})});
+  if(ms.length)recs.push({id:'ms'+i,grp:'متابعة',pri:'عالٍ',title:'أجهزة بلا مسؤول محدد في '+z.name,why:'لم تُحدَّد جهة مسؤولة عن '+ms.length+' بنود في مصفوفة المسؤوليات',data:ms.join('، '),action:'تحديد المسؤول من شاشة المسؤوليات',who:'مدير المشروع',site:i,btn:{l:'فتح مصفوفة المسؤوليات',f:()=>{setCur(i);setScr('mx')}}})});
+ sites.forEach(zz=>{const E=zEff(zz.zst,zz.type),DV=zDevs(zz.type);DV.forEach(d=>{const st=E[d[0]].own;if(st==='ok')return;const dn=DV.filter(x=>E[x[0]].down.includes(d[0])||E[x[0]].weak.includes(d[0])).map(x=>x[0]),tk=zt.find(t=>t.site===zz.id&&t.dev===d[0]&&t.open),w=zOwner(zz,d[0]),major=['SW','RT','UPS','GEN','CBL'].some(q=>d[0].startsWith(q));
+  recs.push({id:'z'+zz.id+d[0],grp:st==='fault'?'تدخل':'متابعة',pri:st==='fault'?(major?'حرج':'عالٍ'):'متوسط',title:d[0]+' ('+d[6]+') — '+ZLB[st]+' في '+d[3]+' · '+zz.name,why:(st==='fault'?'فقد الاتصال بالجهاز':'أداء ضعيف في الإشارة أو السرعة')+(dn.length?' ويؤثر على '+dn.length+' أجهزة: '+dn.join('، '):'')+(tk?' · بلاغ عاجل مُسند إلى '+tk.who:''),data:'الحالة: '+ZLB[st]+' · الموقع: '+d[7]+' · الأجهزة المتأثرة: '+(dn.join('، ')||'لا يوجد'),action:'إعادة تشغيل / فك تعليق الجهاز أو إسناد بلاغ عاجل إلى '+w,who:w,site:zz.id,btn:{l:'إعادة تشغيل / فك التعليق',f:()=>zRestart(zz.id,d[0])},btn2:tk?null:{l:'إسناد بلاغ عاجل',f:()=>zTicket(zz.id,d[0])}})})});
+ const stale=spares.filter(p=>p.chk>30);
+ if(stale.length)recs.push({id:'stale',grp:'متابعة',pri:'متوسط',title:stale.length+' أجهزة احتياطية لم تُفحص منذ أكثر من 30 يوماً',why:'قد لا تكون جاهزة عند الحاجة إليها',data:stale.map(p=>p.id+' (قبل '+p.chk+' يوماً)').join('، '),action:'فحص الأجهزة وتحديث حالتها',who:'الفنيون المسؤولون',btn:{l:'تسجيل الفحص',f:()=>inspect(stale.map(p=>p.id))}});
+ const free=spares.filter(p=>p.status==='متاح'&&p.ready==='جاهز');
+ if(free.length&&!liveIncs.length)recs.push({id:'idle',grp:'تحسين',pri:'منخفض',title:free.length+' أجهزة احتياطية جاهزة وغير مستخدمة',why:'لا توجد بلاغات مفتوحة تستدعي استخدامها الآن',data:free.map(p=>p.id).join('، '),action:'تخصيص ما يلزم منها لسد نقص خطة الاحتياج',who:'مدير المخزون',btn:{l:'فتح تخطيط الاحتياج',f:()=>setScr('plan')}});
+ Object.entries(hist).filter(([n,k])=>k>=2).forEach(([n,k])=>recs.push({id:'rp'+n,grp:'تحسين',pri:'متوسط',title:'جهاز تتكرر أعطاله: '+NM[n].ar,why:'تعطل '+k+' مرات في هذه الجلسة',data:'عدد الأعطال '+k,action:'دراسة استبداله بجهاز أحدث أو تعزيزه بنسخة احتياطية دائمة',who:'سلفراد'===sites[0].owners[n]?'سلفراد':sites[0].owners[n],btn:{l:'عرض الأجهزة الاحتياطية',f:()=>setScr('sp')}}));
+ const ap=prow('ap');
+ if(ap.short>0)recs.push({id:'cov',grp:'تحسين',pri:'متوسط',title:'مواقع تحتاج إلى تحسين التغطية اللاسلكية',why:'نقص '+ap.short+' نقاط وصول عن الاحتياج المخطط',data:'المطلوب '+ap.req+' · المتوفر '+(ap.have+ap.op),action:'تخصيص نقاط وصول من المخزون أو طلبها',who:'ظهير',btn:{l:'فتح تخطيط الاحتياج',f:()=>setScr('plan')}});
+ const away=spares.filter(p=>p.status==='متاح'&&p.loc.startsWith('موقع'));
+ if(away.length)recs.push({id:'away',grp:'تحسين',pri:'منخفض',title:away.length+' جهاز يمكن إعادة توزيعه',why:'أجهزة احتياطية متاحة موجودة في مواقع فعاليات وليست في المستودع',data:away.map(p=>p.id+' في '+p.loc).join('، '),action:'نقلها إلى المستودع الرئيسي لإتاحتها لجميع الفعاليات',who:'مدير المخزون',btn:{l:'نقل إلى المستودع الرئيسي',f:()=>away.forEach(p=>moveSpare(p.id,'المستودع الرئيسي'))}});
+ const cov=PRES.reduce((a,[r])=>a+Math.min(prow(r).short,avail(r)),0),tot=PRES.reduce((a,[r])=>a+prow(r).short,0);
+ if(tot>0&&cov>0)recs.push({id:'cost',grp:'تحسين',pri:'متوسط',title:'تقليل تكلفة الاستئجار بالاستفادة من الأصول المتاحة',why:'يمكن تغطية '+cov+' من '+tot+' نقصاً من أصول جاهزة في المخزون دون طلب توفيرها من الشركة المشغّلة',data:PRES.filter(([r])=>prow(r).short>0&&avail(r)>0).map(([r,l])=>l+': نقص '+prow(r).short+' ومتاح '+avail(r)).join('، '),action:'تخصيص الأجهزة المتاحة قبل أي طلب خارجي',who:'مدير المخزون',btn:{l:'تخصيص من المخزون',f:()=>PRES.forEach(([r])=>planReserve(r))}});
+ recs.sort((a,b)=>PO[a.pri]-PO[b.pri]);
+ const pcol=p=>p==='حرج'||p==='عالٍ'?'var(--or)':p==='متوسط'?'var(--blue)':'var(--mint)';
+ const recCard=r=>html`<div class="rc" key=${r.id} style=${{borderInlineStartColor:pcol(r.pri)}}><div class="row"><b>${r.title}</b><span class="sp"></span><span class="tag" style=${{background:pcol(r.pri)}}>${r.pri}</span></div><div class="mut">${r.why}</div>
+  <div class="row" style=${{flexWrap:'wrap',marginTop:6}}><span class="mut">المسؤول: <b style=${{color:'var(--ink)'}}>${r.who}</b></span><span class="sp"></span><button class="btn o" onClick=${()=>setOpenRec(openRec===r.id?null:r.id)}>${openRec===r.id?'إخفاء التفاصيل':'عرض التفاصيل'}</button></div>
+  ${openRec===r.id&&html`<div class="rd"><div><b>سبب الظهور:</b> ${r.why}</div><div><b>البيانات المستندة إليها:</b> ${r.data}</div><div><b>الإجراء المقترح:</b> ${r.action}</div><div><b>الأولوية:</b> ${r.pri} · <b>المسؤول:</b> ${r.who}</div><div class="row" style=${{marginTop:8}}>${r.btn2&&html`<button class="btn o" onClick=${r.btn2.f}>${r.btn2.l}</button>`}${r.btn&&html`<button class="btn w" onClick=${r.btn.f}>${r.btn.l}</button>`}</div></div>`}</div>`;
+ const stepper=x=>{const p=x.spare||findSpare(x.node)?1:0,S=[['ضغط المحاكاة',1],['تغيّر حالة الجهاز إلى عطل',1],['تأثر الأجهزة المرتبطة',1],['تغيّر مؤشر الجاهزية',1],['ظهور بلاغ جديد',1],['ظهوره في مركز القيادة',1],['ظهور توصية للمدير',1],['البحث عن بديل مناسب',p],['تخصيص البديل',x.spare?1:0],['إنشاء مهمة الاستبدال وإسنادها',x.task?1:0],['إغلاق البلاغ وتحديث المؤشرات',x.closed?1:0]];
+  return html`<div class="stp">${S.map((s,i)=>html`<span key=${i} class=${'sk'+(s[1]?' ok':'')}>${i+1}. ${s[0]}${s[1]?' ✓':''}</span>`)}</div>`};
+ const incPanel=x=>{const z=sites.find(s=>s.id===x.site),c=all[sites.indexOf(z)],p=x.spare?spares.find(s=>s.id===x.spare):findSpare(x.node),st=x.closed?'مغلق':x.task?'مهمة الاستبدال قيد التنفيذ':x.spare?'تم تخصيص البديل':x.ack?'قيد المعالجة':'جديد';
+  return html`<div class="pn2" key=${x.id}><div class="row" style=${{flexWrap:'wrap'}}><b>${x.title}</b><span class="mut">${z.name} · ${x.sev} · ${fmtT(x.t)}</span><span class="sp"></span><span class="tag" style=${{background:x.closed?'var(--mint)':'var(--or)'}}>${st}</span></div>
+  <div class="mut">المسؤول: <b style=${{color:'var(--ink)'}}>${z.owners[x.node]}</b> · الأجهزة المتأثرة: ${[...c.aff].map(n=>NM[n].ar).join('، ')||'لا يوجد'}</div>
+  ${!x.closed&&html`<div class="row" style=${{flexWrap:'wrap',margin:'10px 0'}}>${!x.ack&&html`<button class="btn o" onClick=${()=>ackInc(x)}>بدء المعالجة</button>`}<button class="btn o" disabled=${!p} onClick=${()=>setAltId(altId===x.id?null:x.id)}>عرض البديل</button><button class="btn" disabled=${!p||!!x.spare} onClick=${()=>allocate(x,false)}>تخصيص الجهاز</button><button class="btn" disabled=${!x.spare||!!x.task} onClick=${()=>makeTask(x)}>إنشاء مهمة استبدال</button><button class="btn o" disabled=${!x.spare||(!!x.task&&false)} onClick=${()=>cancelAssign(x)}>إلغاء التخصيص</button>${x.task&&html`<button class="btn m" onClick=${()=>finishRep(x)}>إنهاء مهمة الاستبدال</button>`}</div>`}
+  ${!x.closed&&!p&&html`<div class="mut">لا يوجد جهاز بديل متاح من هذا النوع. <button class="btn o" onClick=${()=>request(NM[x.node].ar+' بديل لـ '+z.name,x.site)}>رفع طلب للشركة المشغّلة</button></div>`}
+  ${altId===x.id&&p&&!x.closed&&html`<div class="alt"><div><b>1 · الجهاز البديل المقترح:</b> ${p.name} (${p.id})</div><div><b>2 · سبب اختياره:</b> نفس نوع الجهاز، ${p.ready==='جاهز'?'جاهز للاستخدام':'يحتاج فحصاً قبل الاستخدام'}، ${p.compat}، مملوك لـ${p.own}، آخر فحص قبل ${p.chk} يوماً</div><div><b>3 · موقعه:</b> ${p.loc}</div><div><b>4 · حالته:</b> ${p.status} · ${p.ready}</div><div><b>5 · المسؤول عن نقله:</b> ${p.who}</div><div><b>6 · المهمة المقترحة:</b> استبدال ${NM[x.node].ar} بالجهاز ${p.id} وإسنادها إلى ${pickTech(z,x.node)}</div><div><b>7 · الأثر المتوقع:</b> تعود ${c.aff.size} أجهزة مرتبطة للعمل، وترتفع الجاهزية الفعلية من ${c.eff}% إلى ${projEff(x)}% بعد إتمام المهمة${p.compat!=='متوافق'?' — يجب التحقق من التوافق قبل التركيب':''}</div></div>`}
+  ${x.kind==='fault'&&stepper(x)}</div>`};
+ const TOP=()=>html`<div class="tb"><nav class="tabs">${SCR.map(([k,l])=>html`<button key=${k} class=${scr===k?'on':''} onClick=${()=>setScr(k)}>${l}${k==='cmd'&&liveIncs.length?' ('+liveIncs.length+')':''}${k==='exec'&&recs.filter(r=>r.grp==='تدخل').length?' ('+recs.filter(r=>r.grp==='تدخل').length+')':''}</button>`)}</nav><span class="sp"></span><button class="btn o" onClick=${()=>setView('gate')}>إعادة عرض الشبكة</button><button class="btn o" onClick=${toggleTheme}>الوضع ${dk?'الفاتح':'الداكن'}</button><button class="btn o" onClick=${resetAll}>إعادة تعيين البيانات</button></div><div class="mut" style=${{margin:'6px 0 0'}}>بيانات تجريبية بالكامل · لا اتصال بأجهزة أو أنظمة حقيقية · تُحفظ التعديلات محلياً في هذا المتصفح فقط وليست تخزيناً مؤسسياً دائماً</div>`;
+ const Cmd=()=>{const stopped=NODES.filter(n=>['fault','aff'].includes(C.ns[n.id])),iv=recs.filter(r=>r.grp==='تدخل'),sel2=incs.find(x=>x.id===selInc),lastU=i=>{const e=evlog.find(x=>x.site===i);return e?fmtT(e.t):'—'},fr=techSt.filter(t=>!t.busy).length;
+  const sc=s=>({ready:['جاهز','var(--mint)'],prog:['جاري التجهيز','var(--blue)'],short:['يوجد نقص','var(--or)']})[all[sites.indexOf(s)].st];
+  return html`<div class="scr"><div class="kpis"><div class="card kpi"><b>${avgEff}%</b><span class="mut">متوسط جاهزية المواقع</span></div><div class="card kpi"><b style=${{color:liveIncs.length?'var(--ord)':'inherit'}}>${liveIncs.length}</b><span class="mut">بلاغات مفتوحة (${liveIncs.filter(x=>x.sev==='حرج').length} حرجة)</span></div><div class="card kpi"><b style=${{color:lateN?'var(--ord)':'inherit'}}>${lateN}</b><span class="mut">مهام متأخرة</span></div><div class="card kpi"><b>${fr} / ${TECHS.length}</b><span class="mut">فنيون متاحون</span></div><div class="card kpi"><b>${spares.filter(p=>p.status==='متاح').length}</b><span class="mut">أجهزة احتياطية متاحة</span></div></div>
+  <div class="card row" style=${{margin:'12px 0',flexWrap:'wrap'}}><button class="btn w" onClick=${simSwitch}>محاكاة تعطل السويتش الرئيسي</button><span class="mut">على ${site.name}: يتأثر ما يعتمد عليه، ويظهر البلاغ والتوصية والبديل ثم المهمة والإغلاق</span></div>
+  <div class="main"><div class="col"><div class="card"><h2>حالة المواقع</h2>
+   <svg viewBox="0 0 300 150" width="100%" style=${{maxHeight:260}} role="img" aria-label="مخطط مواقع الفعاليات"><rect width="300" height="150" rx="10" fill="var(--bg)" stroke="var(--line)"/><path d="M0 100Q80 70 150 95T300 70" stroke="var(--blue)" strokeWidth="9" fill="none" opacity=".5"/>
+   ${sites.map((s,i)=>html`<g class="pin" key=${s.id} tabIndex="0" role="button" aria-label=${s.name} onClick=${()=>setCur(s.id)} onKeyDown=${e=>e.key==='Enter'&&setCur(s.id)}>${s.id===cur&&html`<circle cx=${s.pos[0]} cy=${s.pos[1]} r="16" fill="none" stroke="var(--ink)"/>`}${liveIncs.some(x=>x.site===s.id)&&html`<circle class="blink" cx=${s.pos[0]} cy=${s.pos[1]} r="13" fill="none" stroke="var(--or)" strokeWidth="2"/>`}<circle cx=${s.pos[0]} cy=${s.pos[1]} r="9" fill=${sc(s)[1]} stroke="var(--nt)" strokeWidth="2"/><text x=${s.pos[0]} y=${s.pos[1]+24} textAnchor="middle" fontSize="8" fill="var(--ink)">${s.name}</text></g>`)}</svg>
+   <div class="sg">${sites.map((s,i)=>html`<button key=${s.id} class=${'sc'+(s.id===cur?' on':'')} onClick=${()=>setCur(s.id)}><div class="row"><b>${s.name}</b><span class="sp"></span><span class="tag" style=${{background:sc(s)[1]}}>${sc(s)[0]}</span></div><div class="trk" style=${{margin:'6px 0'}}><i style=${{width:all[i].eff+'%',background:all[i].eff===100?'var(--mintd)':'var(--blued)'}}></i></div><div class="mut">الجاهزية ${all[i].eff}% · بلاغات ${liveIncs.filter(x=>x.site===s.id).length} · متأخرة ${s.items.filter(t=>t.s==='late').length} · صحة الشبكة ${zHealth(s.zst,s.type).pct}%</div><div class="mut">آخر تحديث: ${lastU(s.id)}</div></button>`)}</div></div>
+  <div class="card"><h2>أهم ما يحتاج إلى تدخل الآن</h2>${iv.length?iv.map(recCard):html`<div class="mut">لا توجد حالات تحتاج إلى تدخل فوري. جرّب «محاكاة تعطل السويتش الرئيسي».</div>`}</div>
+  ${sel2&&html`<div class="card"><div class="row"><h2 style=${{margin:0}}>تفاصيل البلاغ وسيناريو المعالجة</h2><span class="sp"></span><button class="btn o" onClick=${()=>setSelInc(null)}>إغلاق</button></div>${incPanel(sel2)}</div>`}</div>
+  <div class="col"><div class="card"><h2>تفاصيل ${site.name}</h2><dl class="kv"><dt>النوع</dt><dd>${site.type}</dd><dt>الجاهزية</dt><dd>${C.eff}% (المهام ${C.pct}%)</dd><dt>الافتتاح</dt><dd>${fmtT(site.start)}</dd></dl>
+   <b>الأجهزة المتوقفة والمتأثرة</b>${stopped.length?stopped.map(n=>html`<div class="it" key=${n.id}><span>${n.ar}</span><span class="tag" style=${{background:C.ns[n.id]==='fault'?'var(--or)':'var(--blue)',marginInlineStart:'auto'}}>${C.ns[n.id]==='fault'?'متوقف':'متأثر'}</span></div>`):html`<div class="mut">لا توجد أجهزة متوقفة</div>`}
+   <b style=${{display:'block',marginTop:10}}>البلاغات المفتوحة</b>${liveIncs.filter(x=>x.site===cur).length?liveIncs.filter(x=>x.site===cur).map(x=>html`<div class="it" key=${x.id}><button class="btn o" onClick=${()=>{setSelInc(x.id);setAltId(null)}}>${x.title}</button><span class="tag" style=${{background:'var(--or)',marginInlineStart:'auto'}}>${x.sev}</span></div>`):html`<div class="mut">لا توجد بلاغات</div>`}
+   <b style=${{display:'block',marginTop:10}}>المهام المتأخرة</b>${site.items.filter(t=>t.s==='late').length?site.items.filter(t=>t.s==='late').map(t=>html`<div class="it" key=${t.id}><span>${t.label}</span><span class="mut" style=${{marginInlineStart:'auto'}}>${t.who}</span></div>`):html`<div class="mut">لا توجد مهام متأخرة</div>`}
+   <div class="row" style=${{marginTop:10}}><button class="btn" onClick=${()=>setScr('board')}>فتح لوحة التجهيز</button></div></div>
+  <div class="card"><h2>الفنيون</h2>${techSt.map(t=>html`<div class="it" key=${t.w}><b>${t.w}</b><span class="tag" style=${{background:t.busy?'var(--or)':'var(--mint)'}}>${t.busy?'مشغول':'متاح'}</span><span class="mut" style=${{marginInlineStart:'auto'}}>مفتوحة ${t.op} · متأخرة ${t.lt} · بلاغات ${t.ic}</span></div>`)}</div>
+  <div class="card"><h2>الأجهزة الاحتياطية المتاحة</h2><div class="chips">${NODES.map(n=>({n,k:spares.filter(p=>p.type===n.id&&p.status==='متاح').length})).filter(x=>x.k).map(x=>html`<span class="tag" key=${x.n.id}>${x.n.ar}: ${x.k}</span>`)}</div><button class="btn o" onClick=${()=>setScr('sp')}>فتح إدارة الأجهزة الاحتياطية</button></div></div></div></div>`};
+ 
+ const Zones=()=>{const zs=site.zst||{},H=zHealth(zs,site.type),E=H.E,DV=zDevs(site.type),selD=selZ&&E[selZ]&&ZD.find(d=>d[0]===selZ);
+  const col=st=>st==='fault'?'var(--red)':st==='weak'?'var(--or)':'var(--mint)',stk=st=>st==='fault'?'var(--red)':st==='weak'?'var(--ord)':'var(--mintd)';
+  const lk=ZL.filter(l=>E[l[0]]&&E[l[1]]).map(([a,b,k])=>{const A=ZD.find(d=>d[0]===a),B=ZD.find(d=>d[0]===b),ea=E[a],eb=E[b],bad=(ea.own==='fault'&&k!=='b')||ea.down.length>0||eb.own==='fault',wk=!bad&&(ea.own==='weak'||ea.weak.length>0||eb.own==='weak'||(ea.own==='fault'&&k==='b')),c=bad?'var(--red)':wk?'var(--or)':'var(--mintd)',dur=bad?0:wk?3.2:1.3,d2=`M${A[4]} ${A[5]}L${B[4]} ${B[5]}`;
+   return html`<g key=${a+b+(bad?1:wk?2:0)}><path d=${d2} stroke=${c} strokeWidth=${bad?2.5:2} strokeOpacity=${bad?.85:.45} strokeDasharray=${k==='p'||k==='b'||bad?'6 4':''} fill="none"/>${dur>0&&!RM&&[0,1].map(i=>html`<circle key=${i} r="3" fill=${c}><animateMotion dur=${dur+'s'} begin=${'-'+(i*dur/2)+'s'} repeatCount="indefinite" path=${d2}/></circle>`)}</g>`});
+  const nds=DV.map(d=>{const e=E[d[0]],st=e.own,x=d[4],y=d[5],halo=st==='ok'&&e.down.length?'var(--red)':st==='ok'&&e.weak.length?'var(--or)':null,tc=st==='fault'?'var(--redt)':'var(--nt)';
+   return html`<g class="zn" key=${d[0]} tabIndex="0" role="button" aria-label=${d[0]+' '+d[6]+' '+ZLB[st]} onClick=${()=>setSelZ(d[0])} onKeyDown=${ev=>ev.key==='Enter'&&setSelZ(d[0])}>
+   ${st!=='ok'&&!RM&&html`<rect x=${x-46} y=${y-23} width="92" height="46" rx="12" fill="none" stroke=${col(st)} strokeWidth="3"><animate attributeName="opacity" values="1;0.1;1" dur="1.2s" repeatCount="indefinite"/></rect>`}
+   ${halo&&html`<rect x=${x-47} y=${y-24} width="94" height="48" rx="13" fill="none" stroke=${halo} strokeWidth="2.5" strokeDasharray="5 3"/>`}
+   ${selZ===d[0]&&html`<rect x=${x-51} y=${y-28} width="102" height="56" rx="15" fill="none" stroke="var(--ink)" strokeWidth="1.5"/>`}
+   <rect x=${x-42} y=${y-19} width="84" height="38" rx="9" fill=${col(st)} stroke=${stk(st)} strokeWidth="2"/>
+   <text x=${x} y=${y-2} textAnchor="middle" fontSize="12.5" fontWeight="700" fill=${tc}>${d[0]}</text>
+   <text x=${x} y=${y+13} textAnchor="middle" fontSize="10" fill=${tc}>${st==='ok'&&e.down.length?'متأثر (انقطاع)':st==='ok'&&e.weak.length?'متأثر (ضعف)':d[1]}</text></g>`});
+  const zr=ZONES2.map(([n,x,y,w,h])=>{const zz=zZone(E,n),sc=zz?(zz.st==='fault'?'var(--red)':zz.st==='weak'?'var(--or)':'var(--line)'):'var(--line)';
+   return html`<g key=${n} opacity=${zz?1:.4}><rect x=${x} y=${y} width=${w} height=${h} rx="14" fill="var(--bg)" stroke=${sc} strokeWidth=${zz&&zz.st!=='ok'?3:1.5} strokeDasharray=${zz?'':'5 4'}/><text x=${x+w/2} y=${y+20} textAnchor="middle" fontSize="13" fontWeight="700" fill="var(--mut)">${n}</text><text x=${x+w/2} y=${y+36} textAnchor="middle" fontSize="11" fill=${zz&&zz.st!=='ok'?(zz.st==='fault'?'var(--red)':'var(--ord)'):'var(--mut)'}>${zz?ZSL[zz.st]+' · '+zz.pct+'%':'غير مطلوبة لهذا النوع'}</text></g>`});
+  const diag=()=>{if(!selD)return html`<div class="card"><h2>التشخيص الفوري</h2><div class="mut">اضغط على أي جهاز في المخطط أو الجدول لعرض بطاقته وحالته والفني المسؤول والإجراءات السريعة.</div>${DV.filter(d=>zCat(E[d[0]])!=='ok').length>0&&html`<div style=${{marginTop:10}}><b>أجهزة تحتاج انتباهاً</b>${DV.filter(d=>zCat(E[d[0]])!=='ok').map(d=>html`<div class="it" key=${d[0]}><button class="btn o" onClick=${()=>setSelZ(d[0])}>${d[0]}</button><span class="tag" style=${{background:zCat(E[d[0]])==='fault'?'var(--red)':'var(--or)',color:zCat(E[d[0]])==='fault'?'var(--redt)':'var(--nt)',marginInlineStart:'auto'}}>${zCat(E[d[0]])==='down'?'منقطع بالتبعية':zCat(E[d[0]])==='fault'?'عطل':'ضعيف'}</span></div>`)}</div>`}</div>`;
+   const d=selD,e=E[d[0]],st=e.own,w=zOwner(site,d[0]),aff=DV.filter(x=>E[x[0]].down.includes(d[0])||E[x[0]].weak.includes(d[0])),tk=zt.find(t=>t.site===cur&&t.dev===d[0]&&t.open),up=ZL.filter(l=>l[1]===d[0]&&E[l[0]]).map(l=>l[0]),dn=ZL.filter(l=>l[0]===d[0]&&E[l[1]]).map(l=>l[1]);
+   const msg=st==='fault'?'فقد الاتصال بالجهاز (محاكاة). الإجراء المقترح: إعادة تشغيل / فك التعليق ثم التحقق من الربط.':st==='weak'?'إشارة أو أداء ضعيف (محاكاة). يُنصح بفحص الكابل والمنفذ ثم إعادة التشغيل.':e.down.length?'الجهاز سليم لكنه فقد الاتصال بسبب '+e.down.join(' و')+'.':e.weak.length?'الجهاز سليم لكن أداءه يتأثر بضعف '+e.weak.join(' و')+'.':'الجهاز يعمل بشكل طبيعي.';
+   return html`<div class="card"><div class="row"><h2 style=${{margin:0}}>${d[6]}</h2><span class="sp"></span><span class="tag" style=${{background:col(st),color:st==='fault'?'var(--redt)':'var(--nt)'}}>${ZLB[st]}</span></div>
+   <div class="mut" style=${{margin:'6px 0'}}>${msg}</div>
+   <div class="row" style=${{alignItems:'flex-start',gap:12}}><dl class="kv" style=${{flex:1}}><dt>الرمز</dt><dd><b>${d[0]}</b> · ${d[1]}</dd><dt>الرقم التسلسلي</dt><dd>${zSN(d[0])}</dd><dt>الموقع المحدد</dt><dd>${d[7]}</dd><dt>المنطقة</dt><dd>${d[3]}</dd><dt>حالة الاتصال</dt><dd>${{ok:'تمام',weak:'ضعيف',fault:'عطل',down:'منقطع بالتبعية'}[zCat(e)]}</dd><dt>الفني المسؤول</dt><dd><b>${w}</b></dd><dt>آخر صيانة</dt><dd>${zLM(d[0])}</dd><dt>يتصل بـ</dt><dd>${up.join('، ')||'—'}</dd><dt>يغذّي</dt><dd>${dn.join('، ')||'—'}</dd></dl><div dangerouslySetInnerHTML=${{__html:qr(zSN(d[0]))}}></div></div>
+   ${aff.length>0&&html`<div class="alt"><b>الأثر على الأجهزة المتصلة (${aff.length})</b>${aff.map(x=>html`<div key=${x[0]}>${x[0]} · ${x[3]} — ${E[x[0]].down.includes(d[0])?'انقطاع':'ضعف'}</div>`)}</div>`}
+   <div class="mut" style=${{marginTop:10}}>تغيير الحالة (محاكاة)</div><div class="chips">${['ok','weak','fault'].map(k=>html`<button key=${k} class=${st===k?'on':''} onClick=${()=>zSet(cur,d[0],k)}>${ZLB[k]}</button>`)}</div>
+   <div class="row" style=${{flexWrap:'wrap'}}><button class="btn w" disabled=${st==='ok'&&!e.down.length&&!e.weak.length} onClick=${()=>st==='ok'?say('الجهاز سليم، عالج الجهاز المسبب أولاً'):zRestart(cur,d[0])}>إعادة تشغيل / فك التعليق</button><button class="btn" disabled=${st==='ok'||!!tk} onClick=${()=>zTicket(cur,d[0])}>إسناد بلاغ عاجل</button></div>
+   ${tk&&html`<div class="pn2" style=${{marginTop:10}}><b>${tk.id}</b> · بلاغ عاجل مُسند إلى ${tk.who} · ${fmtT(tk.t)}<div class="row" style=${{marginTop:6}}><button class="btn m" onClick=${()=>zRestart(cur,d[0])}>تم الإصلاح</button></div></div>`}</div>`};
+  const rows=DV.filter(d=>(zf.zone==='all'||d[3]===zf.zone)&&(zf.st==='all'||zCat(E[d[0]])===zf.st)&&(!zf.q||(d[0]+d[6]+d[7]).includes(zf.q)));
+  const quick=[['SW-01','fault','محاكاة تعطل SW-01'],['SW-04','weak','محاكاة ضعف SW-04'],['GEN-01','fault','محاكاة تعطل GEN-01']].filter(q=>E[q[0]]);
+  return html`<div class="scr"><div class="chips">${sites.map(s=>html`<button key=${s.id} class=${s.id===cur?'on':''} onClick=${()=>{setCur(s.id);setSelZ(null)}}>${s.name}</button>`)}</div>
+  <div class="kpis"><div class="card kpi"><b>${H.pct}%</b><span class="mut">صحة الشبكة الميدانية (${H.total} جهازاً)</span></div><div class="card kpi"><b>${H.ok}</b><span class="mut">تمام</span></div><div class="card kpi"><b style=${{color:H.weak?'var(--ord)':'inherit'}}>${H.weak}</b><span class="mut">ضعيف</span></div><div class="card kpi"><b style=${{color:H.fault?'var(--red)':'inherit'}}>${H.fault}</b><span class="mut">عطل</span></div><div class="card kpi"><b style=${{color:H.down?'var(--red)':'inherit'}}>${H.down}</b><span class="mut">منقطع بالتبعية</span></div></div>
+  <div class="card row" style=${{margin:'12px 0',flexWrap:'wrap'}}>${quick.map(q=>html`<button class="btn w" key=${q[0]} onClick=${()=>{zSet(cur,q[0],q[1]);setSelZ(q[0])}}>${q[2]}</button>`)}<button class="btn o" onClick=${()=>zAllOk(cur)}>استعادة الكل إلى تمام</button><span class="mut">فعالية ${site.type} · جاهزية الموقع ${C.eff}% · بيانات محاكاة بلا اتصال بأجهزة حقيقية</span></div>
+  <div class="main"><div class="card"><h2>مناطق الفعالية وروابط الأجهزة · ${site.name}</h2><div class="wrap"><svg viewBox="0 0 960 600" width="100%" style=${{minWidth:720}} role="img" aria-label="مخطط مناطق الفعالية وجميع أجهزتها وروابطها">${zr}${lk}${nds}</svg></div>
+   <div class="leg"><span><i class="dot" style=${{background:'var(--mintd)'}}></i>تمام: متصل ويعمل بكفاءة</span><span><i class="dot" style=${{background:'var(--or)'}}></i>ضعيف: إشارة أو أداء ضعيف</span><span><i class="dot" style=${{background:'var(--red)'}}></i>عطل: متوقف أو معلّق أو فاقد الاتصال</span><span>إطار متقطع: جهاز متأثر بجهاز آخر · خط متقطع: طاقة أو انقطاع</span></div></div>
+  <div class="col">${diag()}</div></div>
+  <div class="card" style=${{marginTop:12}}><h2>أجهزة ${site.type === 'مهرجان' ? 'المهرجان' : 'الفعالية'} ومواقعها (${rows.length} من ${DV.length})</h2>
+   <div class="row" style=${{flexWrap:'wrap',marginBottom:8}}><select aria-label="المنطقة" value=${zf.zone} onChange=${e=>setZf({...zf,zone:e.target.value})}><option value="all">كل المناطق</option>${ZONES2.filter(z=>zZone(E,z[0])).map(z=>html`<option key=${z[0]}>${z[0]}</option>`)}</select><select aria-label="الحالة" value=${zf.st} onChange=${e=>setZf({...zf,st:e.target.value})}><option value="all">كل الحالات</option><option value="ok">تمام</option><option value="weak">ضعيف</option><option value="fault">عطل</option><option value="down">منقطع بالتبعية</option></select><input placeholder="بحث بالرمز أو الاسم أو الموقع" aria-label="بحث" value=${zf.q} onChange=${e=>setZf({...zf,q:e.target.value})}/></div>
+   <div class="wrap"><table><tr><th>الرمز</th><th>الجهاز</th><th>الموقع المحدد</th><th>حالة الاتصال</th><th>الفني المسؤول</th><th></th></tr>${rows.map(d=>{const c=zCat(E[d[0]]);return html`<tr key=${d[0]} class="dv" onClick=${()=>setSelZ(d[0])}><td><b>${d[0]}</b></td><td>${d[6]}</td><td>${d[7]}</td><td><span class="tag" style=${{background:c==='fault'||c==='down'?'var(--red)':c==='weak'?'var(--or)':'var(--mint)',color:c==='fault'||c==='down'?'var(--redt)':'var(--nt)'}}>${{ok:'تمام',weak:'ضعيف',fault:'عطل',down:'منقطع بالتبعية'}[c]}</span></td><td>${zOwner(site,d[0])}</td><td><button class="btn o" onClick=${ev=>{ev.stopPropagation();setSelZ(d[0]);window.scrollTo({top:0,behavior:'smooth'})}}>البطاقة</button></td></tr>`})}</table></div></div>
+  <div class="card" style=${{marginTop:12}}><h2>حالة المناطق</h2><div class="sg">${ZONES2.map(z=>{const zz=zZone(E,z[0]);return zz&&html`<div class="sc" key=${z[0]} style=${{cursor:'default'}}><div class="row"><b>${z[0]}</b><span class="sp"></span><span class="tag" style=${{background:zz.st==='fault'?'var(--red)':zz.st==='weak'?'var(--or)':'var(--mint)',color:zz.st==='fault'?'var(--redt)':'var(--nt)'}}>${ZSL[zz.st]}</span></div><div class="trk" style=${{margin:'6px 0'}}><i style=${{width:zz.pct+'%',background:zz.st==='fault'?'var(--red)':zz.st==='weak'?'var(--or)':'var(--mintd)'}}></i></div><div class="mut">جاهزية المنطقة ${zz.pct}% · ${zz.n} أجهزة</div></div>`})}</div></div></div>`};
+ const Exec=()=>{const crit=liveIncs.filter(x=>x.sev==='حرج'),aS=new Set(liveIncs.map(x=>x.site)).size,c0=crit[0],sp=c0?(c0.spare?spares.find(s=>s.id===c0.spare):findSpare(c0.node)):null;
+  const sum='الفعالية جاهزيتها '+avgEff+'%. '+(crit.length?'يوجد '+(crit.length===1?'بلاغ حرج واحد':crit.length+' بلاغات حرجة')+' يؤثر على '+(aS===1?'موقع واحد':aS+' مواقع'):'لا توجد بلاغات حرجة')+(lateN?'، وعدد المهام المتأخرة '+lateN:'')+'. '+(c0?(sp?(c0.spare?'تم تخصيص جهاز احتياطي ('+sp.name+') لمعالجة المشكلة.':'يتوفر جهاز احتياطي ('+sp.name+') يمكن استخدامه لمعالجة المشكلة بعد التحقق من توافقه.'):'لا يتوفر جهاز احتياطي مناسب، يُنصح برفع طلب إلى الشركة المشغّلة.'):'لا توجد إجراءات عاجلة، والأولوية لإكمال المهام المتأخرة.');
+  const G=[['تدخل','أمور تحتاج إلى تدخل'],['متابعة','أمور تحتاج إلى متابعة'],['تحسين','فرص للتحسين']];
+  return html`<div class="scr"><div class="card"><h2 style=${{fontSize:20,color:'var(--ink)'}}>ماذا يحتاج المدير أن يعرف الآن؟</h2><div class="exs">${sum}</div><div class="chips" style=${{marginTop:10}}>${G.map(([k,l])=>html`<span class="tag" key=${k} style=${{background:k==='تدخل'?'var(--or)':k==='متابعة'?'var(--blue)':'var(--mint)'}}>${l}: ${recs.filter(r=>r.grp===k).length}</span>`)}</div></div>
+  <div class="g3">${G.map(([k,l])=>html`<div key=${k}><h2 style=${{margin:'14px 0 8px'}}>${l}</h2>${recs.filter(r=>r.grp===k).length?recs.filter(r=>r.grp===k).map(recCard):html`<div class="card mut">لا توجد عناصر حالياً</div>`}</div>`)}</div></div>`};
+ const spc=s=>s==='متاح'?'var(--mint)':s==='صيانة'?'var(--or)':'var(--blue)';
+ const Spares=()=>{const rows=spares.filter(p=>(sf.type==='all'||p.type===sf.type)&&(sf.st==='all'||p.status===sf.st)),cur2=liveIncs.find(x=>x.id===selInc)||liveIncs[0],locs=['المستودع الرئيسي','مستودع الشركة المشغّلة','مستودع المورد',...sites.map(s=>'موقع '+s.name)];
+  return html`<div class="scr"><div class="kpis"><div class="card kpi"><b>${spares.length}</b><span class="mut">إجمالي الأجهزة الاحتياطية</span></div><div class="card kpi"><b>${spares.filter(p=>p.status==='متاح').length}</b><span class="mut">متاحة</span></div><div class="card kpi"><b>${spares.filter(p=>['مخصص','محجوز','قيد الاستخدام'].includes(p.status)).length}</b><span class="mut">مخصصة أو قيد الاستخدام</span></div><div class="card kpi"><b>${spares.filter(p=>p.status==='صيانة'||p.ready!=='جاهز').length}</b><span class="mut">تحتاج فحصاً أو صيانة</span></div></div>
+  <div class="card" style=${{margin:'12px 0'}}><h2>سيناريو الاستبدال عند تعطل جهاز أساسي</h2>
+   ${liveIncs.length>1&&html`<div class="chips">${liveIncs.map(x=>html`<button key=${x.id} class=${(cur2&&cur2.id===x.id)?'on':''} onClick=${()=>{setSelInc(x.id);setAltId(null)}}>${x.title}</button>`)}</div>`}
+   ${cur2?incPanel(cur2):html`<div class="mut">لا توجد أعطال حالية. عند تعطل جهاز أساسي يبحث النظام في المخزون عن بديل مناسب. <button class="btn w" onClick=${simSwitch}>محاكاة تعطل السويتش الرئيسي</button></div>`}</div>
+  <div class="card"><h2>مخزون الأجهزة الاحتياطية</h2><div class="row" style=${{flexWrap:'wrap',marginBottom:8}}><select aria-label="النوع" value=${sf.type} onChange=${e=>setSf({...sf,type:e.target.value})}><option value="all">كل الأنواع</option>${NODES.map(n=>html`<option key=${n.id} value=${n.id}>${n.ar}</option>`)}</select><select aria-label="الحالة" value=${sf.st} onChange=${e=>setSf({...sf,st:e.target.value})}><option value="all">كل الحالات</option>${['متاح','مخصص','محجوز','قيد الاستخدام','صيانة'].map(s=>html`<option key=${s}>${s}</option>`)}</select></div>
+   <div class="wrap"><table><tr><th>الجهاز</th><th>الرقم</th><th>النوع</th><th>الموقع</th><th>الحالة</th><th>الملكية</th><th>الجاهزية</th><th>المسؤول</th><th>آخر فحص</th><th></th></tr>${rows.map(p=>html`<tr key=${p.id}><td>${p.name}</td><td>${p.id}</td><td>${NM[p.type].ar}</td><td><select class="wh" aria-label=${'موقع '+p.id} value=${p.loc} onChange=${e=>moveSpare(p.id,e.target.value)}>${(locs.includes(p.loc)?locs:[...locs,p.loc]).map(l=>html`<option key=${l}>${l}</option>`)}</select></td><td><span class="tag" style=${{background:spc(p.status)}}>${p.status}</span></td><td>${p.own}</td><td style=${{color:p.ready==='جاهز'?'inherit':'var(--ord)'}}>${p.ready}</td><td>${p.who}</td><td>قبل ${p.chk} يوماً</td><td><button class="btn o" onClick=${()=>inspect([p.id])}>تسجيل فحص</button></td></tr>`)}</table></div></div></div>`};
+ const setP=pt=>{const n={...plan,...pt},rows={...n.rows};PRES.forEach(([r])=>rows[r]={...rows[r],req:Math.round((BASEQ[n.type][r]||0)*n.sn*dayF(n.days))});setPlan({...n,rows})};
+ const Plan=()=>{const rs=PRES.map(([r,l])=>({r,l,...prow(r)})),tReq=rs.reduce((a,x)=>a+x.req,0),tHave=rs.reduce((a,x)=>a+x.have+x.op,0),tShort=rs.reduce((a,x)=>a+x.short,0),cov=tReq?Math.round(rs.reduce((a,x)=>a+Math.min(x.req,x.have+x.op),0)/tReq*100):100,pr=[];
+  rs.filter(x=>x.short>0).forEach(x=>{const av=avail(x.r),n=Math.min(x.short,av),rem=x.short-n;
+   if(n)pr.push({k:x.r+'a',t:'تخصيص '+n+' من '+x.l+' من المخزون الاحتياطي ('+av+' متاح وجاهز)',f:()=>planReserve(x.r),b:'تخصيص من المخزون'});
+   if(rem)pr.push({k:x.r+'b',t:'طلب توفير '+rem+' من '+x.l+' من الشركة المشغّلة',f:()=>{setRow(x.r,'op',plan.rows[x.r].op+rem);note('طلب توفير '+rem+' من '+x.l+' من الشركة المشغّلة','طلب احتياج',null);say('سُجّل طلب التوفير وحُدّث النقص')},b:'طلب من الشركة'});
+   pr.push({k:x.r+'c',t:'رفع طلب احتياج رسمي بنقص '+x.short+' من '+x.l,f:()=>request(x.l+' (نقص '+x.short+')',null),b:'رفع الطلب'});
+   if(plan.sn>1)pr.push({k:x.r+'d',t:'إعادة توزيع '+x.l+' على '+plan.sn+' مواقع: نحو '+Math.ceil(x.short/plan.sn)+' لكل موقع',f:()=>decide('اعتماد خطة توزيع نقص '+x.l+' ('+x.short+') على '+plan.sn+' مواقع',null),b:'اعتماد التوزيع'})});
+  return html`<div class="scr"><div class="card"><h2>مدخلات الخطة</h2><div class="row" style=${{flexWrap:'wrap',gap:14}}><label class="mut">نوع الفعالية <select value=${plan.type} onChange=${e=>setP({type:e.target.value})}>${TYPES.map(t=>html`<option key=${t}>${t}</option>`)}</select></label><label class="mut">عدد المواقع <input type="number" min="1" max="12" style=${{width:70}} value=${plan.sn} onChange=${e=>setP({sn:Math.max(1,+e.target.value||1)})}/></label><label class="mut">أيام التشغيل <input type="number" min="1" max="30" style=${{width:70}} value=${plan.days} onChange=${e=>setP({days:Math.max(1,+e.target.value||1)})}/></label><button class="btn" onClick=${()=>{note('اعتماد خطة الاحتياج: '+plan.type+' · '+plan.sn+' مواقع · '+plan.days+' أيام · نسبة التغطية '+cov+'%','قرار إداري',null);say('اعتُمدت خطة الاحتياج وسُجّلت')}}>اعتماد الخطة</button></div><div class="mut" style=${{marginTop:6}}>تغيير النوع أو المواقع أو الأيام يعيد احتساب الاحتياج، ويمكنك تعديل الأرقام يدوياً.</div></div>
+  <div class="kpis" style=${{margin:'12px 0'}}><div class="card kpi"><b>${tReq}</b><span class="mut">إجمالي الأجهزة المطلوبة</span></div><div class="card kpi"><b>${tHave}</b><span class="mut">إجمالي المتوفر</span></div><div class="card kpi"><b style=${{color:tShort?'var(--ord)':'inherit'}}>${tShort}</b><span class="mut">إجمالي النقص</span></div><div class="card kpi"><b>${cov}%</b><span class="mut">نسبة تغطية الاحتياج</span></div></div>
+  <div class="card"><h2>الاحتياج مقابل المتوفر</h2><div class="wrap"><table><tr><th>التجهيز</th><th>المطلوب</th><th>المتوفر (البلدية)</th><th>توفره الشركة</th><th>النقص</th><th>الحالة</th></tr>${rs.map(x=>html`<tr key=${x.r}><td>${x.l}</td><td><input type="number" min="0" class="ni" value=${x.req} onChange=${e=>setRow(x.r,'req',e.target.value)}/></td><td><input type="number" min="0" class="ni" value=${x.have} onChange=${e=>setRow(x.r,'have',e.target.value)}/></td><td><input type="number" min="0" class="ni" value=${x.op} onChange=${e=>setRow(x.r,'op',e.target.value)}/></td><td style=${{color:x.short?'var(--ord)':'inherit',fontWeight:700}}>${x.short}</td><td><span class="tag" style=${{background:x.short?'var(--or)':'var(--mint)'}}>${x.short?'نقص':'مكتمل'}</span></td></tr>`)}</table></div></div>
+  <div class="card" style=${{marginTop:12}}><h2>التوصيات العملية</h2>${pr.length?pr.map(x=>html`<div class="it" key=${x.k}><span>${x.t}</span><button class="btn w" style=${{marginInlineStart:'auto'}} onClick=${x.f}>${x.b}</button></div>`):html`<div class="mut">لا يوجد نقص، والاحتياج مغطى بالكامل.</div>`}
+   ${reqs.length>0&&html`<div class="mut" style=${{marginTop:10}}>طلبات مرفوعة: ${reqs.map(r=>r.id+' — '+r.label).join(' · ')}</div>`}</div></div>`};
+ const Matrix=()=>{const miss=[];NODES.forEach(n=>{if(C.ns[n.id]==='off')return;[['inst','مسؤول التركيب'],['mnt','مسؤول الصيانة'],['hov','مسؤول الاستلام والتسليم']].forEach(([k,l])=>{if(!site.resp[n.id][k])miss.push([n,k,l])})});
+  const own=sites.flatMap((z,i)=>NODES.filter(n=>all[i].ns[n.id]!=='off').map(n=>[z.resp[n.id].own,n.ar])).concat(spares.map(p=>[p.own,p.name])),tot=own.length||1;
+  const sel3=(n,k,opts)=>html`<select class="wh" aria-label=${NM[n.id].ar+' '+k} value=${site.resp[n.id][k]} onChange=${e=>setR(n.id,k,e.target.value)} style=${{borderColor:site.resp[n.id][k]?'':'var(--or)'}}>${opts.map(o=>html`<option key=${o} value=${o}>${o||'غير محدد'}</option>`)}</select>`;
+  return html`<div class="scr"><div class="chips">${sites.map(s=>html`<button key=${s.id} class=${s.id===cur?'on':''} onClick=${()=>setCur(s.id)}>${s.name}</button>`)}</div>
+  ${miss.length>0&&html`<div class="card" style=${{borderColor:'var(--or)',marginBottom:12}}><h2 style=${{color:'var(--ord)'}}>تنبيه: بنود بلا مسؤول محدد (${miss.length})</h2>${miss.map(([n,k,l])=>html`<div class="it" key=${n.id+k}><span>${n.ar} · ${l}</span><button class="btn o" style=${{marginInlineStart:'auto'}} onClick=${()=>setR(n.id,k,NOWN[n.id])}>تعيين ${NOWN[n.id]}</button></div>`)}</div>`}
+  <div class="g2" style=${{marginTop:0}}><div class="card"><h2>توزيع الأجهزة حسب الملكية</h2><div class="seg2">${PARTY.map((p,i)=>{const k=own.filter(o=>o[0]===p).length;return k?html`<i key=${p} style=${{flex:k,background:['var(--mintd)','var(--or)','var(--blued)','var(--line)'][i]}}></i>`:null})}</div>
+   ${PARTY.map((p,i)=>{const l=own.filter(o=>o[0]===p);return html`<div class="it" key=${p}><i class="dot" style=${{background:['var(--mintd)','var(--or)','var(--blued)','var(--line)'][i]}}></i><b>${p}</b><span class="mut">${l.length} (${Math.round(l.length/tot*100)}%)</span><span class="mut" style=${{marginInlineStart:'auto'}}>${[...new Set(l.map(o=>o[1]))].slice(0,3).join('، ')}${new Set(l.map(o=>o[1])).size>3?' …':''}</span></div>`})}</div>
+  <div class="card"><h2>الفرق بين الملكية والتشغيل والصيانة</h2><div class="mut">كل جهاز له مالك (من يملكه) وجهة تشغيل (من يديره أثناء الفعالية) ومسؤولون منفصلون للتركيب والمتابعة والصيانة والاستلام والتسليم. تغيير «مسؤول المتابعة» ينقل مهام الجهاز إلى المسؤول الجديد فوراً.</div></div></div>
+  <div class="card" style=${{marginTop:12}}><h2>مصفوفة المسؤوليات · ${site.name}</h2><div class="wrap"><table><tr><th>الجهاز</th><th>مالك الجهاز</th><th>جهة التشغيل</th><th>مسؤول التركيب</th><th>مسؤول المتابعة</th><th>مسؤول الصيانة</th><th>مسؤول الاستلام والتسليم</th></tr>${NODES.filter(n=>C.ns[n.id]!=='off').map(n=>html`<tr key=${n.id}><td>${n.ar}</td><td>${sel3(n,'own',PARTY)}</td><td>${sel3(n,'op',PARTY)}</td><td>${sel3(n,'inst',ROPT)}</td><td><select class="wh" aria-label=${n.ar+' مسؤول المتابعة'} value=${site.owners[n.id]} onChange=${e=>setOwner(n.id,e.target.value)}>${TECHS.map(w=>html`<option key=${w}>${w}</option>`)}</select></td><td>${sel3(n,'mnt',ROPT)}</td><td>${sel3(n,'hov',ROPT)}</td></tr>`)}</table></div></div></div>`};
+ const EvLog=()=>{const rows=evlog.filter(e=>(evf.site==='all'||String(e.site)===evf.site)&&(evf.who==='all'||e.who===evf.who)&&(evf.type==='all'||e.type===evf.type)&&(!evf.q||e.msg.includes(evf.q))),types=[...new Set(evlog.map(e=>e.type))];
+  return html`<div class="scr"><div class="card"><h2>سجل القرارات والتغييرات</h2><div class="row" style=${{flexWrap:'wrap',marginBottom:10}}><select aria-label="الفعالية" value=${evf.site} onChange=${e=>setEvf({...evf,site:e.target.value})}><option value="all">كل الفعاليات</option>${sites.map(s=>html`<option key=${s.id} value=${String(s.id)}>${s.name}</option>`)}<option value="null">أحداث عامة</option></select><select aria-label="المسؤول" value=${evf.who} onChange=${e=>setEvf({...evf,who:e.target.value})}><option value="all">كل المسؤولين</option>${['المدير (تجريبي)',...TECHS].map(w=>html`<option key=${w}>${w}</option>`)}</select><select aria-label="نوع الحدث" value=${evf.type} onChange=${e=>setEvf({...evf,type:e.target.value})}><option value="all">كل الأنواع</option>${types.map(t=>html`<option key=${t}>${t}</option>`)}</select><input placeholder="بحث في الأحداث" aria-label="بحث" value=${evf.q} onChange=${e=>setEvf({...evf,q:e.target.value})}/><span class="mut">${rows.length} حدث</span></div>
+  ${rows.slice(0,80).map(e=>html`<div class="ev" key=${e.id}><div class="row" style=${{flexWrap:'wrap'}}><span class="tag" style=${{background:/عطل|طارئ|تأخر/.test(e.type)?'var(--or)':/إغلاق|إنشاء|فحص/.test(e.type)?'var(--mint)':'var(--blue)'}}>${e.type}</span><b>${e.msg}</b></div><div class="mut">${fmtT(e.t)} · ${e.who} · ${e.site==null?'عام':(sites.find(s=>s.id===e.site)||{name:'—'}).name}</div></div>`)}${!rows.length&&html`<div class="mut">لا توجد أحداث مطابقة.</div>`}</div></div>`};
+
+ return html`<div class="app">
+ ${TOP()}
+ ${scr==='board'&&html`<div>
+ <div class="card hd"><div><h1>Smart Event IT Checklist</h1><div class="mut">منصة إدارة وتجهيز البنية التحتية التقنية للفعاليات البلدية · نموذج أولي ببيانات تجريبية</div></div><div class="sp"></div>
+  <select aria-label="نوع الفعالية" value=${draft} onChange=${e=>setDraft(e.target.value)}>${TYPES.map(t=>html`<option key=${t}>${t}</option>`)}</select>
+  <button class="btn" onClick=${regen}>توليد / تحديث القائمة</button>
+  <button class="btn w" onClick=${emergency}>محاكاة حالة طارئة</button>
+  <span class=${'badge b-'+C.st}>${ST[C.st][0]} · ${C.eff}%</span></div>
+ <div class="kpis">
+  <div class="card kpi"><b>${C.eff}%</b><span class="mut">نسبة الجاهزية الكلية</span></div>
+  <div class="card kpi"><b style=${{color:nf+mreq?'var(--ord)':'inherit'}}>${nf+mreq}</b><span class="mut">بلاغات (أعطال + صيانة)</span></div>
+  <div class="card kpi"><b>${resp.length?Math.round(resp.reduce((a,b)=>a+b.s,0)/resp.length)+' ث':'—'}</b><span class="mut">متوسط الاستجابة (محاكاة)</span></div>
+  <div class="card kpi"><b style=${{fontSize:'17px'}}>${top?NM[top[0]].ar:'لا يوجد'}</b><span class="mut">أكثر الأعطال تكراراً</span></div>
+  <div class="card kpi"><b style=${{fontSize:'17px'}}>${perf[0].w}</b><span class="mut">الأعلى أداءً · ${perf[0].pct}%</span></div></div>
+ <${GoLive} site=${site} C=${C}/>
+ <div class="main"><div class="col">
+  ${emers.filter(e=>e.site===cur&&live(e)).map(e=>html`<div class="emg" key=${e.id}><div><b class="blink">حالة طارئة</b> · ${e.text}</div><div class="row" style=${{flexWrap:'wrap',marginTop:8}}><span>المسؤول عن المعالجة: <b>${e.who}</b></span><span class="sp"></span>${e.ack?html`<span class="tag">قيد المعالجة</span>`:html`<button class="btn" onClick=${()=>ackEm(e)}>بدأ المعالجة</button>`}<button class="btn m" onClick=${()=>resolveEm(e)}>تم الحل</button></div></div>`)}
+  ${C.st==='ready'&&html`<div class="ban">جاهزية 100% — أُرسل إشعار الجاهزية الختامي إلى المدير</div>`}
+  <div class="card"><h2>مخطط الشبكة والبنية التحتية · ${site.name}</h2>
+   <svg viewBox="0 0 780 330" width="100%" role="img" aria-label="مخطط الشبكة التقني المتحرك">${EDGES.map(edge)}${NODES.map(nodeEl)}</svg>
+   <div class="leg"><span><i class="dot" style=${{background:'var(--mintd)'}}></i>جاهز: تدفق سريع</span><span><i class="dot" style=${{background:'var(--blued)'}}></i>قيد التجهيز: تدفق بطيء</span><span><i class="dot" style=${{background:'var(--ord)'}}></i>عطل أو تأثر: نبضات سريعة متقطعة</span><span>خط متصل: بيانات · خط متقطع: طاقة</span></div></div>
+  <div class="g4" style=${{marginTop:0}}>${DEPTS.map(([n,ids])=>{const off=(OFF[site.type]||[]),its=site.items.filter(i=>ids.includes(i.node));if(!its.length)return null;const p=dp(ids);
+   return html`<div class="card" key=${n}><div class="row"><b>${n}</b><span class="mut">${[...new Set(its.map(i=>i.who))].join(' · ')}</span><span class="sp"></span><b>${p}%</b></div><div class="trk" style=${{margin:'6px 0'}}><i style=${{width:p+'%',background:p===100?'var(--mintd)':'var(--blued)'}}></i></div>
+    ${its.map(i=>html`<div class="it" key=${i.id}><span>${i.label}</span><select class="wh" aria-label=${'المسؤول عن '+i.label} value=${i.who} onChange=${e=>assign(i.id,e.target.value)} style=${{color:i.s==='late'?'var(--ord)':'inherit',fontWeight:i.s==='late'?700:400,marginInlineStart:'auto'}}>${TECHS.map(w=>html`<option key=${w}>${w}</option>`)}</select><button class=${'st s-'+i.s} onClick=${()=>cyc(i.id)} title="اضغط لتغيير الحالة">${SL[i.s]}</button></div>`)}</div>`})}</div></div>
+ <div class="col">
+  <div class="card"><h2>بطاقة الجهاز</h2>${N?html`<div class="row"><b>${N.ar}</b><span class="mut">${N.en}</span></div>
+   <div class="row" style=${{alignItems:'flex-start',gap:12}}><dl class="kv" style=${{flex:1}}><dt>الرقم التسلسلي</dt><dd>${N.sn}</dd><dt>الموقع</dt><dd>${N.loc}</dd><dt>الحالة</dt><dd>${{ready:'جاهز',prog:'قيد التجهيز',late:'متأخر',fault:'عطل',aff:'متأثر بعطل',off:'غير مطلوب'}[NS]}</dd><dt>المسؤول عنه</dt><dd><select class="wh" aria-label="المسؤول عنه" value=${site.owners[N.id]} onChange=${e=>setOwner(N.id,e.target.value)}>${TECHS.map(w=>html`<option key=${w}>${w}</option>`)}</select></dd><dt>العهدة</dt><dd>${cust[cur+'|'+N.id]?cust[cur+'|'+N.id].action+' · '+cust[cur+'|'+N.id].cond:'لم تُوثَّق بعد'}</dd><dt>آخر صيانة</dt><dd>${N.mt}</dd></dl>
+   <div dangerouslySetInnerHTML=${{__html:qr(N.sn+site.name)}}></div></div>
+   <div class="row"><button class="btn o" onClick=${()=>setScan(!scan)}>${scan?'إخفاء نتيجة المسح':'محاكاة مسح QR'}</button></div>${scan&&html`<div class="scan"><b>نتيجة المسح</b><div>${N.ar} · ${N.sn}</div><div>الموقع: ${N.loc}</div><div>المسؤول عنه: <b>${site.owners[N.id]}</b></div><div>آخر صيانة: ${N.mt}</div></div>`}
+   ${NS!=='off'&&html`<div class="row" style=${{flexWrap:'wrap'}}>${site.faults[N.id]?html`<button class="btn m" onClick=${()=>fix(N.id)}>إصلاح العطل</button>`:html`<button class="btn w" onClick=${()=>fault(N.id)}>محاكاة عطل</button>`}<button class="btn o" onClick=${()=>readyNode(N.id)}>تعيين جاهز</button></div>`}`:html`<div class="mut">اضغط على أي جهاز في المخطط لعرض بياناته ورمز QR ومحاكاة عطل أو إصلاح.</div>`}</div>
+  <div class="card"><h2>مواقع الفعاليات</h2><svg viewBox="0 0 300 150" width="100%" role="img" aria-label="خريطة مواقع الفعاليات"><rect width="300" height="150" rx="10" fill="var(--bg)" stroke="var(--line)"/><path d="M0 100Q80 70 150 95T300 70" stroke=${'var(--blue)'} strokeWidth="9" fill="none" opacity=".5"/>
+   ${sites.map((s,i)=>html`<g class="pin" key=${s.id} tabIndex="0" role="button" aria-label=${s.name} onClick=${()=>setCur(s.id)} onKeyDown=${e=>e.key==='Enter'&&setCur(s.id)}>${s.id===cur&&html`<circle cx=${s.pos[0]} cy=${s.pos[1]} r="15" fill="none" stroke="var(--ink)"/>`}<circle cx=${s.pos[0]} cy=${s.pos[1]} r="9" fill=${'var(--'+ST[all[i].st][1]+')'} stroke="var(--nt)" strokeWidth="2"/></g>`)}</svg>
+   <div class="chips">${sites.map((s,i)=>html`<button key=${s.id} class=${s.id===cur?'on':''} onClick=${()=>setCur(s.id)}><i class="dot" style=${{background:'var(--'+ST[all[i].st][1]+')'}}></i>${s.name} ${all[i].eff}%</button>`)}</div></div>
+  <div class="card"><h2>الإشعارات والتذكيرات</h2><button class="btn w" onClick=${remind}>إرسال تذكير للمتأخرين</button><div class="feed" style=${{marginTop:8}}>${notes.length?notes.map((n,i)=>html`<div key=${i}><span class="mut">${n.t}</span> · ${n.m}</div>`):html`<div class="mut">لا توجد إشعارات بعد.</div>`}</div></div></div></div>
+ <div class="card" style=${{marginTop:12}}><div class="row" style=${{flexWrap:'wrap'}}><h2 style=${{margin:0}}>أداء الفنيين</h2><span class="mut">لوحة مؤشرات بنمط Power BI · عرض توضيحي للتقرير المرتقب</span><span class="sp"></span>
+  <div class="chips" style=${{margin:0}}>${[['cur','الفعالية الحالية'],['all','كل الفعاليات']].map(([k,l])=>html`<button key=${k} class=${scope===k?'on':''} onClick=${()=>setScope(k)}>${l}</button>`)}</div></div>
+  <div class="bi">${ts.map(x=>html`<div class="bic" key=${x.w}><div class="row"><b>${x.w}</b>${fast===x.w&&x.tot>0&&html`<span class="tag">الأسرع إنجازاً</span>`}<span class="sp"></span><b>${x.pct}%</b></div>
+   <div class="trk" style=${{margin:'6px 0'}}><i style=${{width:x.pct+'%',background:x.pct===100?'var(--mintd)':'var(--blued)'}}></i></div>
+   <div class="bis"><div><b>${x.tot}</b><span class="mut">مهام</span></div><div><b style=${{color:x.late?'var(--ord)':'inherit'}}>${x.late}</b><span class="mut">متأخرة</span></div><div><b>${x.rep}</b><span class="mut">بلاغات</span></div><div><b>${x.av?x.av+' ث':'—'}</b><span class="mut">الاستجابة</span></div></div></div>`)}</div>
+  ${(()=>{const mx=Math.max(1,...ts.flatMap(x=>[x.late,x.rep]));return html`<svg viewBox="0 0 360 130" width="100%" style=${{maxWidth:480}} role="img" aria-label="مقارنة المتأخرة والبلاغات بين الفنيين">${ts.map((x,i)=>{const bx=40+i*110,h1=x.late/mx*70,h2=x.rep/mx*70;return html`<g key=${x.w}><rect x=${bx} y=${95-h1} width="28" height=${h1} rx="4" fill="var(--or)"/><rect x=${bx+34} y=${95-h2} width="28" height=${h2} rx="4" fill="var(--blue)"/><text x=${bx+14} y=${90-h1} textAnchor="middle" fontSize="11" fill="var(--ink)">${x.late}</text><text x=${bx+48} y=${90-h2} textAnchor="middle" fontSize="11" fill="var(--ink)">${x.rep}</text><text x=${bx+31} y="115" textAnchor="middle" fontSize="12" fill="var(--ink)">${x.w}</text></g>`})}<line x1="20" y1="95" x2="340" y2="95" stroke="var(--line)"/></svg>`})()}
+  <div class="leg"><span><i class="dot" style=${{background:'var(--or)'}}></i>مهام متأخرة</span><span><i class="dot" style=${{background:'var(--blue)'}}></i>بلاغات أعطال</span><span>الاستجابة: متوسط الثواني من العطل إلى الإصلاح (محاكاة)</span></div></div>
+ <div class="g2">
+  <div class="card"><h2>سجل العهدة والتسليم / الإرجاع الرقمي</h2>
+   <div class="row" style=${{flexWrap:'wrap'}}><select aria-label="الجهاز" value=${lf.dev} onChange=${e=>setLf({...lf,dev:e.target.value})}>${NODES.filter(n=>C.ns[n.id]!=='off').map(n=>html`<option key=${n.id} value=${n.id}>${n.ar}</option>`)}</select>
+   <select aria-label="الإجراء" value=${lf.action} onChange=${e=>setLf({...lf,action:e.target.value})}><option>تسليم للفعالية</option><option>إرجاع بعد الفعالية</option></select>
+   <select aria-label="الحالة الفنية" value=${lf.cond} onChange=${e=>setLf({...lf,cond:e.target.value})}><option>سليم</option><option>يحتاج صيانة</option><option>في المستودع</option></select>
+   <button class="btn" onClick=${addHo}>توثيق</button></div>
+   ${(()=>{const cs=Object.values(cust).filter(l=>l.site===cur),rows=log.filter(l=>l.site===cur);return html`<div><div class="chips" style=${{marginTop:8}}><span class="tag">خارج للفعالية: ${cs.filter(l=>l.action==='تسليم للفعالية').length}</span><span class="tag">في المستودع: ${cs.filter(l=>l.cond==='في المستودع').length}</span><span class="tag" style=${{background:'var(--or)'}}>يحتاج صيانة: ${cs.filter(l=>l.cond==='يحتاج صيانة').length}</span></div>${rows.length?html`<table><tr><th>الوقت</th><th>الجهاز</th><th>المسؤول</th><th>الإجراء</th><th>الحالة</th></tr>${rows.slice(0,5).map((l,i)=>html`<tr key=${i}><td>${l.t}</td><td>${l.dev}</td><td>${l.who}</td><td>${l.action}</td><td style=${{color:l.cond==='يحتاج صيانة'?'var(--ord)':'inherit'}}>${l.cond}</td></tr>`)}</table>`:html`<div class="mut">لا توجد سجلات عهدة بعد.</div>`}</div>`})()}</div>
+  <div class="card"><h2>المساعد الذكي</h2><div class="chat">${chat.map((m,i)=>html`<div key=${i} class=${'m '+(m.a?'a':'u')}>${m.t}</div>`)}</div>
+   <div class="chips">${['كم فعالية تم تجهيزها؟','ما أكثر الأعطال؟','من الأعلى أداءً؟','ما مهام أحمد؟','ما أداء سلفراد؟','كم يتبقى على الافتتاح؟'].map(x=>html`<button key=${x} onClick=${()=>ask(x)}>${x}</button>`)}</div>
+   <div class="row"><input style=${{flex:1}} placeholder="اكتب سؤالك..." value=${q} onChange=${e=>setQ(e.target.value)} onKeyDown=${e=>e.key==='Enter'&&q&&ask(q)}/><button class="btn" onClick=${()=>q&&ask(q)}>إرسال</button></div></div></div>
+ <div class="card" style=${{marginTop:12}}><h2>الأثر التشغيلي</h2>
+ <div class="imp"><div><b>المتابعة التقليدية</b><ul><li>ملفات Excel ورسائل واتساب متفرقة</li><li>اتصالات يدوية لمعرفة حالة كل جهاز</li><li>اكتشاف النقص والتأخر بعد وقوعه</li><li>إعداد تقرير الجاهزية يدوياً</li></ul></div>
+ <div><b style=${{color:'var(--mintd)'}}>مع Smart Event IT Checklist</b><ul><li>قائمة تجهيز تُولَّد تلقائياً حسب نوع الفعالية</li><li>إسناد مباشر لكل مهمة وجهاز باسم مسؤول</li><li>تنبيه لحظي للتأخر والعطل مع تحديد المسؤول</li><li>تقرير جاهزية وعهدة جاهز في أي لحظة</li></ul></div></div>
+ <div class="imc"><div><b>${sites.reduce((a,z)=>a+z.items.length,0)}</b><span class="mut">مهمة وُلّدت وأُسندت تلقائياً</span></div><div><b>${notes.length}</b><span class="mut">إشعار وتذكير آلي في هذه الجلسة</span></div><div><b>${evs.length}</b><span class="mut">بلاغ وُجّه مباشرة لمسؤول</span></div></div>
+ <div class="row" style=${{flexWrap:'wrap'}}><span>افتراض: المتابعة اليدوية للمهمة</span><input type="number" min="0" aria-label="دقائق المتابعة اليدوية" style=${{width:64}} value=${man} onChange=${e=>setMan(Math.max(0,+e.target.value||0))}/><span>دقيقة، وفي النظام</span><input type="number" min="0" aria-label="دقائق المتابعة في النظام" style=${{width:64}} value=${sysm} onChange=${e=>setSysm(Math.max(0,+e.target.value||0))}/><span>دقيقة</span></div>
+ <div style=${{marginTop:8}}><b>توفير تقديري: ${Math.max(0,Math.round(sites.reduce((a,z)=>a+z.items.length,0)*(man-sysm)/60*10)/10)} ساعة عمل</b> <span class="mut">للمهام الحالية · افتراضات قابلة للتعديل وليست قياساً فعلياً</span></div></div>
+ </div>`}
+ ${scr==='cmd'&&Cmd()}${scr==='zones'&&Zones()}${scr==='exec'&&Exec()}${scr==='sp'&&Spares()}${scr==='plan'&&Plan()}${scr==='mx'&&Matrix()}${scr==='log'&&EvLog()}
+ ${toast&&html`<div id="toast" role="status">${toast}</div>`}</div>`}
+ReactDOM.createRoot(document.getElementById('root')).render(html`<${App}/>`);
+</script>
+</body>
+</html>
